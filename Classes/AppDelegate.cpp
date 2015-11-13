@@ -22,6 +22,16 @@ void AppDelegate::initGLContextAttrs()
     GLView::setGLContextAttrs(glContextAttrs);
 }
 
+static void windowResizeCallback(GLFWwindow* window, int w, int h)
+{
+    // update 'size'
+    Director::getInstance()->getOpenGLView()->setFrameSize(w,h);
+    Director::getInstance()->getOpenGLView()->setDesignResolutionSize(w,h, ResolutionPolicy::SHOW_ALL);
+    
+    // flicker
+    // Director::getInstance()->getOpenGLView()->swapBuffers();
+}
+
 bool AppDelegate::applicationDidFinishLaunching() {
     // initialize director
     auto director = Director::getInstance();
@@ -29,7 +39,13 @@ bool AppDelegate::applicationDidFinishLaunching() {
     if(!glview) {
         glview = GLViewImpl::createWithRect("imguix", Rect(0, 0, 960, 640));
         director->setOpenGLView(glview);
+        
+        GLFWwindow *glfwWindow = static_cast<GLViewImpl*>(glview)->getWindow();
+        glfwSetWindowSizeCallback(glfwWindow, windowResizeCallback);
     }
+    
+    extern void setWindowResizable();
+    setWindowResizable();
 
     director->getOpenGLView()->setDesignResolutionSize(960, 640, ResolutionPolicy::SHOW_ALL);
 
