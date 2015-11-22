@@ -1,6 +1,10 @@
 #include "AppDelegate.h"
 #include "HelloWorldScene.h"
 
+#if (CC_TARGET_PLATFORM == CC_PLATFORM_WIN32)
+#include "IMGUIGLViewImpl.h"
+#endif
+
 USING_NS_CC;
 
 AppDelegate::AppDelegate() {
@@ -37,15 +41,22 @@ bool AppDelegate::applicationDidFinishLaunching() {
     auto director = Director::getInstance();
     auto glview = director->getOpenGLView();
     if(!glview) {
+#if (CC_TARGET_PLATFORM == CC_PLATFORM_MAC)
         glview = GLViewImpl::createWithRect("imguix", Rect(0, 0, 960, 640));
-        director->setOpenGLView(glview);
-        
         GLFWwindow *glfwWindow = static_cast<GLViewImpl*>(glview)->getWindow();
+#elif (CC_TARGET_PLATFORM == CC_PLATFORM_WIN32)
+		glview = IMGUIGLViewImpl::createWithRect("imguix", Rect(0, 0, 960, 640));
+		GLFWwindow *glfwWindow = static_cast<IMGUIGLViewImpl*>(glview)->getWindow();
+#endif
+		director->setOpenGLView(glview);
         glfwSetWindowSizeCallback(glfwWindow, windowResizeCallback);
+
     }
     
+#if (CC_TARGET_PLATFORM == CC_PLATFORM_MAC)
     extern void setWindowResizable();
     setWindowResizable();
+#endif
 
     director->getOpenGLView()->setDesignResolutionSize(960, 640, ResolutionPolicy::SHOW_ALL);
 
