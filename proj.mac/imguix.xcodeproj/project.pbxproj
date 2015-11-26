@@ -7,10 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		196A09C01C07573E00E61A2C /* imgui_impl_glfw_mac.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 196A09BF1C07573E00E61A2C /* imgui_impl_glfw_mac.cpp */; };
 		19BE2FC41BE46CF600CF4257 /* imgui.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 19BE2FBA1BE46CF600CF4257 /* imgui.cpp */; };
 		19BE2FC51BE46CF600CF4257 /* imgui_demo.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 19BE2FBC1BE46CF600CF4257 /* imgui_demo.cpp */; };
 		19BE2FC61BE46CF600CF4257 /* imgui_draw.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 19BE2FBD1BE46CF600CF4257 /* imgui_draw.cpp */; };
-		19BE2FC71BE46CF600CF4257 /* imgui_impl_glfw.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 19BE2FBE1BE46CF600CF4257 /* imgui_impl_glfw.cpp */; };
 		19FD45C31BF64C3E006130E4 /* NativeDelegat.mm in Sources */ = {isa = PBXBuildFile; fileRef = 19FD45C11BF64C3E006130E4 /* NativeDelegat.mm */; };
 		46880B8919C43A87006E1F66 /* AppDelegate.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 46880B8419C43A87006E1F66 /* AppDelegate.cpp */; };
 		46880B8B19C43A87006E1F66 /* HelloWorldScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 46880B8619C43A87006E1F66 /* HelloWorldScene.cpp */; };
@@ -31,12 +31,12 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		196A09BF1C07573E00E61A2C /* imgui_impl_glfw_mac.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = imgui_impl_glfw_mac.cpp; sourceTree = "<group>"; };
 		19BE2FB91BE46CF600CF4257 /* imconfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = imconfig.h; sourceTree = "<group>"; };
 		19BE2FBA1BE46CF600CF4257 /* imgui.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = imgui.cpp; sourceTree = "<group>"; };
 		19BE2FBB1BE46CF600CF4257 /* imgui.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = imgui.h; sourceTree = "<group>"; };
 		19BE2FBC1BE46CF600CF4257 /* imgui_demo.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = imgui_demo.cpp; sourceTree = "<group>"; };
 		19BE2FBD1BE46CF600CF4257 /* imgui_draw.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = imgui_draw.cpp; sourceTree = "<group>"; };
-		19BE2FBE1BE46CF600CF4257 /* imgui_impl_glfw.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = imgui_impl_glfw.cpp; sourceTree = "<group>"; };
 		19BE2FBF1BE46CF600CF4257 /* imgui_impl_glfw.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = imgui_impl_glfw.h; sourceTree = "<group>"; };
 		19BE2FC01BE46CF600CF4257 /* imgui_internal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = imgui_internal.h; sourceTree = "<group>"; };
 		19BE2FC11BE46CF600CF4257 /* stb_rect_pack.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = stb_rect_pack.h; sourceTree = "<group>"; };
@@ -105,7 +105,7 @@
 				19BE2FBB1BE46CF600CF4257 /* imgui.h */,
 				19BE2FBC1BE46CF600CF4257 /* imgui_demo.cpp */,
 				19BE2FBD1BE46CF600CF4257 /* imgui_draw.cpp */,
-				19BE2FBE1BE46CF600CF4257 /* imgui_impl_glfw.cpp */,
+				196A09BF1C07573E00E61A2C /* imgui_impl_glfw_mac.cpp */,
 				19BE2FBF1BE46CF600CF4257 /* imgui_impl_glfw.h */,
 				19BE2FC01BE46CF600CF4257 /* imgui_internal.h */,
 				19BE2FC11BE46CF600CF4257 /* stb_rect_pack.h */,
@@ -277,10 +277,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				19BE2FC71BE46CF600CF4257 /* imgui_impl_glfw.cpp in Sources */,
 				46880B8919C43A87006E1F66 /* AppDelegate.cpp in Sources */,
 				19BE2FC41BE46CF600CF4257 /* imgui.cpp in Sources */,
 				19FD45C31BF64C3E006130E4 /* NativeDelegat.mm in Sources */,
+				196A09C01C07573E00E61A2C /* imgui_impl_glfw_mac.cpp in Sources */,
 				503AE10517EB98FF00D1A890 /* main.cpp in Sources */,
 				19BE2FC61BE46CF600CF4257 /* imgui_draw.cpp in Sources */,
 				19BE2FC51BE46CF600CF4257 /* imgui_demo.cpp in Sources */,
