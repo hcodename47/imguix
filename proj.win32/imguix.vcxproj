@@ -152,7 +152,7 @@ xcopy /Y /Q "$(COCOS_FRAMEWORKS)\cocos2d-x-3.8.1\prebuilt\win32\*.*" "$(OutDir)"
     <ClCompile Include="..\Classes\imgui\imgui.cpp" />
     <ClCompile Include="..\Classes\imgui\imgui_demo.cpp" />
     <ClCompile Include="..\Classes\imgui\imgui_draw.cpp" />
-    <ClCompile Include="..\Classes\imgui\imgui_impl_glfw.cpp" />
+    <ClCompile Include="..\Classes\imgui\imgui_impl_glfw_win32.cpp" />
     <ClCompile Include="main.cpp" />
   </ItemGroup>
   <ItemGroup>
