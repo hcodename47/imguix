@@ -10,6 +10,9 @@
     <Filter Include="src">
       <UniqueIdentifier>{bb6c862e-70e9-49d9-81b7-3829a6f50471}</UniqueIdentifier>
     </Filter>
+    <Filter Include="src\imgui">
+      <UniqueIdentifier>{c3c221da-eac8-410c-a8b4-37a0ebcc6f7c}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -22,16 +25,16 @@
       <Filter>src</Filter>
     </ClCompile>
     <ClCompile Include="..\Classes\imgui\imgui.cpp">
-      <Filter>src</Filter>
+      <Filter>src\imgui</Filter>
     </ClCompile>
     <ClCompile Include="..\Classes\imgui\imgui_demo.cpp">
-      <Filter>src</Filter>
+      <Filter>src\imgui</Filter>
     </ClCompile>
     <ClCompile Include="..\Classes\imgui\imgui_draw.cpp">
-      <Filter>src</Filter>
+      <Filter>src\imgui</Filter>
     </ClCompile>
     <ClCompile Include="..\Classes\imgui\imgui_impl_glfw.cpp">
-      <Filter>src</Filter>
+      <Filter>src\imgui</Filter>
     </ClCompile>
     <ClCompile Include="..\Classes\IMGUIGLViewImpl.cpp">
       <Filter>src</Filter>
@@ -48,25 +51,25 @@
       <Filter>src</Filter>
     </ClInclude>
     <ClInclude Include="..\Classes\imgui\imconfig.h">
-      <Filter>src</Filter>
+      <Filter>src\imgui</Filter>
     </ClInclude>
     <ClInclude Include="..\Classes\imgui\imgui.h">
-      <Filter>src</Filter>
+      <Filter>src\imgui</Filter>
     </ClInclude>
     <ClInclude Include="..\Classes\imgui\imgui_impl_glfw.h">
-      <Filter>src</Filter>
+      <Filter>src\imgui</Filter>
     </ClInclude>
     <ClInclude Include="..\Classes\imgui\imgui_internal.h">
-      <Filter>src</Filter>
+      <Filter>src\imgui</Filter>
     </ClInclude>
     <ClInclude Include="..\Classes\imgui\stb_rect_pack.h">
-      <Filter>src</Filter>
+      <Filter>src\imgui</Filter>
     </ClInclude>
     <ClInclude Include="..\Classes\imgui\stb_textedit.h">
-      <Filter>src</Filter>
+      <Filter>src\imgui</Filter>
     </ClInclude>
     <ClInclude Include="..\Classes\imgui\stb_truetype.h">
-      <Filter>src</Filter>
+      <Filter>src\imgui</Filter>
     </ClInclude>
     <ClInclude Include="..\Classes\IMGUIGLViewImpl.h">
       <Filter>src</Filter>
