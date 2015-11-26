@@ -5,3 +5,12 @@
 
 
 ![screen](imguix.png)
+
+TODO:
+imguix use fixed pipeline on mac and programmable pipline on win32 to render imgui.
+Need to fix it.
+
+detail:
+
+- [Classes/imgui/imgui_impl_glfw_win32.cpp](Classes/imgui/imgui_impl_glfw_win32.cpp)
+- [Classes/imgui/imgui_impl_glfw_mac.cpp](Classes/imgui/imgui_impl_glfw_mac.cpp)
