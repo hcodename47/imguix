@@ -5,6 +5,7 @@
 #include "imgui/imgui.h"
 #include "imgui/imgui_impl_glfw.h"
 
+
 USING_NS_CC;
 
 using namespace cocostudio::timeline;
@@ -83,6 +84,7 @@ void HelloWorld::onDraw()
         {
             ImGui::SetNextWindowSize(ImVec2(200,100), ImGuiSetCond_FirstUseEver);
             ImGui::Begin("Another Window", &show_another_window);
+
             ImGui::Text("Hello");
             ImGui::End();
         }
@@ -93,14 +95,14 @@ void HelloWorld::onDraw()
             ImGui::SetNextWindowPos(ImVec2(650, 20), ImGuiSetCond_FirstUseEver);
             ImGui::ShowTestWindow(&show_test_window);
         }
-        
+        //
         // Rendering
-        int display_w, display_h;
-        glfwGetFramebufferSize(window, &display_w, &display_h);
-        glViewport(0, 0, display_w, display_h);
-        //        glClearColor(clear_color.x, clear_color.y, clear_color.z, clear_color.w);
+        //int display_w, display_h;
+        //glfwGetFramebufferSize(window, &display_w, &display_h);
+        //glViewport(0, 0, display_w, display_h);
+                //glClearColor(clear_color.x, clear_color.y, clear_color.z, 0);
         //        glClear(GL_COLOR_BUFFER_BIT);
         ImGui::Render();
     }
-    
+	glUseProgram(1);
 }
