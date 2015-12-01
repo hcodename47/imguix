@@ -45,7 +45,6 @@ bool HelloWorld::init()
     addChild(rootNode);
 
     window = ((GLViewImpl*)Director::getInstance()->getOpenGLView())->getWindow();
-    ImGui_ImplGlfw_Init(window, true);
     
     setGLProgram(GLProgramCache::getInstance()->getGLProgram(GLProgram::SHADER_NAME_POSITION_COLOR));
     
