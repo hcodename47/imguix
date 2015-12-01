@@ -11,7 +11,6 @@
 		19BE2FC41BE46CF600CF4257 /* imgui.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 19BE2FBA1BE46CF600CF4257 /* imgui.cpp */; };
 		19BE2FC51BE46CF600CF4257 /* imgui_demo.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 19BE2FBC1BE46CF600CF4257 /* imgui_demo.cpp */; };
 		19BE2FC61BE46CF600CF4257 /* imgui_draw.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 19BE2FBD1BE46CF600CF4257 /* imgui_draw.cpp */; };
-		19FD45C31BF64C3E006130E4 /* NativeDelegat.mm in Sources */ = {isa = PBXBuildFile; fileRef = 19FD45C11BF64C3E006130E4 /* NativeDelegat.mm */; };
 		46880B8919C43A87006E1F66 /* AppDelegate.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 46880B8419C43A87006E1F66 /* AppDelegate.cpp */; };
 		46880B8B19C43A87006E1F66 /* HelloWorldScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 46880B8619C43A87006E1F66 /* HelloWorldScene.cpp */; };
 		503AE0F817EB97AB00D1A890 /* Icon.icns in Resources */ = {isa = PBXBuildFile; fileRef = 503AE0F617EB97AB00D1A890 /* Icon.icns */; };
@@ -26,6 +25,7 @@
 		5087E78B17EB975400C73F5D /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5087E78A17EB975400C73F5D /* OpenGL.framework */; };
 		65864E89AE5B86C9D1F66D1E /* res in Resources */ = {isa = PBXBuildFile; fileRef = 7FDD41ADB08C3C9247273E5B /* res */; };
 		8262943E1AAF051F00CB7CF7 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8262943D1AAF051F00CB7CF7 /* Security.framework */; };
+		9FAED4D71C0D78B500013446 /* IMGUIGLViewImpl.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9FAED4D51C0D78B500013446 /* IMGUIGLViewImpl.cpp */; };
 		ED545A7E1B68A1FA00C3958E /* libiconv.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = ED545A7D1B68A1FA00C3958E /* libiconv.dylib */; };
 		F0F24BEB88841CFBFE570287 /* libcocos2d Mac.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5CC84510B1413B3FCD7DE99B /* libcocos2d Mac.a */; };
 /* End PBXBuildFile section */
@@ -42,7 +42,6 @@
 		19BE2FC11BE46CF600CF4257 /* stb_rect_pack.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = stb_rect_pack.h; sourceTree = "<group>"; };
 		19BE2FC21BE46CF600CF4257 /* stb_textedit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = stb_textedit.h; sourceTree = "<group>"; };
 		19BE2FC31BE46CF600CF4257 /* stb_truetype.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = stb_truetype.h; sourceTree = "<group>"; };
-		19FD45C11BF64C3E006130E4 /* NativeDelegat.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = NativeDelegat.mm; sourceTree = "<group>"; };
 		1ACB3243164770DE00914215 /* libcurl.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libcurl.a; path = ../../cocos2dx/platform/third_party/ios/libraries/libcurl.a; sourceTree = "<group>"; };
 		1D30AB110D05D00D00671497 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		1DF5F4DF0D08C38300B7A737 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
@@ -64,6 +63,8 @@
 		5CC84510B1413B3FCD7DE99B /* libcocos2d Mac.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libcocos2d Mac.a"; path = "/Applications/Cocos/frameworks/cocos2d-x-3.8.1/prebuilt/mac/libcocos2d Mac.a"; sourceTree = "<absolute>"; };
 		7FDD41ADB08C3C9247273E5B /* res */ = {isa = PBXFileReference; lastKnownFileType = "?"; name = res; path = ../Resources/res; sourceTree = "<group>"; };
 		8262943D1AAF051F00CB7CF7 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		9FAED4D51C0D78B500013446 /* IMGUIGLViewImpl.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = IMGUIGLViewImpl.cpp; sourceTree = "<group>"; };
+		9FAED4D61C0D78B500013446 /* IMGUIGLViewImpl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IMGUIGLViewImpl.h; sourceTree = "<group>"; };
 		BF170DB012928DE900B8313A /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
 		BF170DB412928DE900B8313A /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
 		BF1C47EA1293683800B63C5D /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
@@ -186,8 +187,9 @@
 				46880B8419C43A87006E1F66 /* AppDelegate.cpp */,
 				46880B8519C43A87006E1F66 /* AppDelegate.h */,
 				46880B8619C43A87006E1F66 /* HelloWorldScene.cpp */,
-				19FD45C11BF64C3E006130E4 /* NativeDelegat.mm */,
 				46880B8719C43A87006E1F66 /* HelloWorldScene.h */,
+				9FAED4D51C0D78B500013446 /* IMGUIGLViewImpl.cpp */,
+				9FAED4D61C0D78B500013446 /* IMGUIGLViewImpl.h */,
 			);
 			name = Classes;
 			path = ../Classes;
@@ -279,12 +281,12 @@
 			files = (
 				46880B8919C43A87006E1F66 /* AppDelegate.cpp in Sources */,
 				19BE2FC41BE46CF600CF4257 /* imgui.cpp in Sources */,
-				19FD45C31BF64C3E006130E4 /* NativeDelegat.mm in Sources */,
 				196A09C01C07573E00E61A2C /* imgui_impl_glfw_mac.cpp in Sources */,
 				503AE10517EB98FF00D1A890 /* main.cpp in Sources */,
 				19BE2FC61BE46CF600CF4257 /* imgui_draw.cpp in Sources */,
 				19BE2FC51BE46CF600CF4257 /* imgui_demo.cpp in Sources */,
 				46880B8B19C43A87006E1F66 /* HelloWorldScene.cpp in Sources */,
+				9FAED4D71C0D78B500013446 /* IMGUIGLViewImpl.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
