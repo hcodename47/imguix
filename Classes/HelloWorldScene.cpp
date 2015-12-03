@@ -24,7 +24,16 @@ Scene* HelloWorld::createScene()
     auto layer = HelloWorld::create();
 
     // add layer as a child to scene
-    scene->addChild(layer);
+    scene->addChild(layer, 999);
+
+    auto rootNode = CSLoader::createNode("MainScene.csb");
+    scene->addChild(rootNode);
+    auto listener = EventListenerTouchOneByOne::create();
+    listener->onTouchBegan = [](Touch* touch, Event*) -> bool {
+        CCLOG("touch bg node");
+        return true;
+    };
+    Director::getInstance()->getEventDispatcher()->addEventListenerWithSceneGraphPriority(listener, rootNode);
 
     // return the scene
     return scene;
@@ -39,15 +48,18 @@ bool HelloWorld::init()
     {
         return false;
     }
-    
-    auto rootNode = CSLoader::createNode("MainScene.csb");
-
-    addChild(rootNode);
 
     window = ((GLViewImpl*)Director::getInstance()->getOpenGLView())->getWindow();
-    
     setGLProgram(GLProgramCache::getInstance()->getGLProgram(GLProgram::SHADER_NAME_POSITION_COLOR));
-    
+
+    auto listener = EventListenerTouchOneByOne::create();
+    listener->setSwallowTouches(true);
+    listener->onTouchBegan = [](Touch* touch, Event*) -> bool {
+        bool inImGuiWidgets = ImGui::IsPosHoveringAnyWindow(ImVec2(touch->getLocationInView().x, touch->getLocationInView().y));
+        CCLOG("touch in ImGui widgets %s", inImGuiWidgets ? "yes" : "no");
+        return inImGuiWidgets;
+    };
+    getEventDispatcher()->addEventListenerWithSceneGraphPriority(listener, this);
     return true;
 }
 
