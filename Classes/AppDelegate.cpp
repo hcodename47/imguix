@@ -1,9 +1,6 @@
 #include "AppDelegate.h"
 #include "HelloWorldScene.h"
-
-#if (CC_TARGET_PLATFORM == CC_PLATFORM_WIN32)
-#include "IMGUIGLViewImpl.h"
-#endif
+#include "ImGuiLayer.h"
 
 USING_NS_CC;
 
@@ -11,7 +8,7 @@ AppDelegate::AppDelegate() {
 
 }
 
-AppDelegate::~AppDelegate() 
+AppDelegate::~AppDelegate()
 {
 }
 
@@ -42,7 +39,8 @@ bool AppDelegate::applicationDidFinishLaunching() {
 
     // create a scene. it's an autorelease object
     auto scene = HelloWorld::createScene();
-
+    scene->addChild(ImGuiLayer::create(), INT_MAX);
+    
     // run
     director->runWithScene(scene);
 
