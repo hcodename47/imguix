@@ -39,6 +39,9 @@
     <ClCompile Include="..\Classes\imgui\imgui_impl_glfw_win32.cpp">
       <Filter>src\imgui</Filter>
     </ClCompile>
+    <ClCompile Include="..\Classes\ImGuiLayer.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="main.h">
@@ -72,6 +75,9 @@
       <Filter>src\imgui</Filter>
     </ClInclude>
     <ClInclude Include="..\Classes\IMGUIGLViewImpl.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\ImGuiLayer.h">
       <Filter>src</Filter>
     </ClInclude>
   </ItemGroup>
