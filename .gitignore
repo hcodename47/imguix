@@ -2,3 +2,6 @@ proj.ios_mac/imguix.xcodeproj/project.xcworkspace
 proj.ios_mac/imguix.xcodeproj/xcuserdata
 proj.mac/imguix.xcodeproj/project.xcworkspace
 proj.mac/imguix.xcodeproj/xcuserdata
+proj.win32/Debug.win32/
+proj.win32/imguix.sdf
+proj.win32/imguix.v12.suo
