@@ -23,19 +23,11 @@
  ****************************************************************************/
 
 #include "AppDelegate.h"
-#include "cocos2d.h"
-#include "IMGUIGLViewImpl.h"
 
 USING_NS_CC;
 
-
-
 int main(int argc, char *argv[])
 {
-    auto director = Director::getInstance();
-    IMGUIGLViewImpl *glview = IMGUIGLViewImpl::createWithRect("imguix", Rect(0, 0, 960, 640));
-    director->setOpenGLView(glview);
-
     AppDelegate app;
     return Application::getInstance()->run();
 }

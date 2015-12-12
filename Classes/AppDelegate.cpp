@@ -1,5 +1,6 @@
 #include "AppDelegate.h"
 #include "HelloWorldScene.h"
+#include "IMGUIGLViewImpl.h"
 #include "ImGuiLayer.h"
 
 USING_NS_CC;
@@ -24,16 +25,25 @@ void AppDelegate::initGLContextAttrs()
 }
 
 bool AppDelegate::applicationDidFinishLaunching() {
+    int width = 960;
+    int height = 640;
+    
     // initialize director
     auto director = Director::getInstance();
+    auto glview   = director->getOpenGLView();
 
-    director->getOpenGLView()->setDesignResolutionSize(960, 640, ResolutionPolicy::SHOW_ALL);
+    if (!glview)
+    {
+        director->setOpenGLView(IMGUIGLViewImpl::createWithRect("imguix", Rect(0, 0, width, height)));
+    }
+    
+    director->getOpenGLView()->setDesignResolutionSize(width, height, ResolutionPolicy::NO_BORDER);
 
     // turn on display FPS
     director->setDisplayStats(true);
 
     // set FPS. the default value is 1.0/60 if you don't call this
-    director->setAnimationInterval(1.0f / 60);
+    director->setAnimationInterval(1.0f / 30);
 
     FileUtils::getInstance()->addSearchPath("res");
 
