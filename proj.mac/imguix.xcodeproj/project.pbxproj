@@ -27,6 +27,7 @@
 		65864E89AE5B86C9D1F66D1E /* res in Resources */ = {isa = PBXBuildFile; fileRef = 7FDD41ADB08C3C9247273E5B /* res */; };
 		8262943E1AAF051F00CB7CF7 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8262943D1AAF051F00CB7CF7 /* Security.framework */; };
 		9FAED4D71C0D78B500013446 /* IMGUIGLViewImpl.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9FAED4D51C0D78B500013446 /* IMGUIGLViewImpl.cpp */; };
+		9FB252791CA1408200C984A8 /* CCIMGUI.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9FB252771CA1408200C984A8 /* CCIMGUI.cpp */; };
 		ED545A7E1B68A1FA00C3958E /* libiconv.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = ED545A7D1B68A1FA00C3958E /* libiconv.dylib */; };
 		F0F24BEB88841CFBFE570287 /* libcocos2d Mac.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5CC84510B1413B3FCD7DE99B /* libcocos2d Mac.a */; };
 /* End PBXBuildFile section */
@@ -68,6 +69,8 @@
 		8262943D1AAF051F00CB7CF7 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		9FAED4D51C0D78B500013446 /* IMGUIGLViewImpl.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = IMGUIGLViewImpl.cpp; sourceTree = "<group>"; };
 		9FAED4D61C0D78B500013446 /* IMGUIGLViewImpl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IMGUIGLViewImpl.h; sourceTree = "<group>"; };
+		9FB252771CA1408200C984A8 /* CCIMGUI.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CCIMGUI.cpp; sourceTree = "<group>"; };
+		9FB252781CA1408200C984A8 /* CCIMGUI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCIMGUI.h; sourceTree = "<group>"; };
 		BF170DB012928DE900B8313A /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
 		BF170DB412928DE900B8313A /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
 		BF1C47EA1293683800B63C5D /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
@@ -193,6 +196,8 @@
 				46880B8719C43A87006E1F66 /* HelloWorldScene.h */,
 				195501301C1458D5006E39E5 /* ImGuiLayer.cpp */,
 				195501311C1458D5006E39E5 /* ImGuiLayer.h */,
+				9FB252771CA1408200C984A8 /* CCIMGUI.cpp */,
+				9FB252781CA1408200C984A8 /* CCIMGUI.h */,
 				9FAED4D51C0D78B500013446 /* IMGUIGLViewImpl.cpp */,
 				9FAED4D61C0D78B500013446 /* IMGUIGLViewImpl.h */,
 			);
@@ -289,6 +294,7 @@
 				196A09C01C07573E00E61A2C /* imgui_impl_glfw_mac.cpp in Sources */,
 				503AE10517EB98FF00D1A890 /* main.cpp in Sources */,
 				19BE2FC61BE46CF600CF4257 /* imgui_draw.cpp in Sources */,
+				9FB252791CA1408200C984A8 /* CCIMGUI.cpp in Sources */,
 				19BE2FC51BE46CF600CF4257 /* imgui_demo.cpp in Sources */,
 				46880B8B19C43A87006E1F66 /* HelloWorldScene.cpp in Sources */,
 				195501321C1458D5006E39E5 /* ImGuiLayer.cpp in Sources */,
