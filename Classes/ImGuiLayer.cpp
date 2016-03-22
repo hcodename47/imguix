@@ -1,15 +1,9 @@
 #include "ImGuiLayer.h"
-
 #include "imgui/imgui.h"
 #include "imgui/imgui_impl_glfw.h"
-
+#include "CCIMGUI.h"
 
 USING_NS_CC;
-
-static GLFWwindow* window = nullptr;
-static bool show_test_window = true;
-static bool show_another_window = false;
-static ImVec4 clear_color = ImColor(114, 144, 154);
 
 // on "init" you need to initialize your instance
 bool ImGuiLayer::init()
@@ -21,14 +15,16 @@ bool ImGuiLayer::init()
         return false;
     }
 
-    window = ((GLViewImpl*)Director::getInstance()->getOpenGLView())->getWindow();
+	// init imgui
+	CCIMGUI::getInstance()->setWindow(((GLViewImpl*)Director::getInstance()->getOpenGLView())->getWindow());
     setGLProgram(GLProgramCache::getInstance()->getGLProgram(GLProgram::SHADER_NAME_POSITION_COLOR));
 
+	// events
     auto listener = EventListenerTouchOneByOne::create();
     listener->setSwallowTouches(true);
     listener->onTouchBegan = [](Touch* touch, Event*) -> bool {
         bool inImGuiWidgets = ImGui::IsPosHoveringAnyWindow(ImVec2(touch->getLocationInView().x, touch->getLocationInView().y));
-        CCLOG("touch in ImGui widgets %s", inImGuiWidgets ? "yes" : "no");
+        //CCLOG("touch in ImGui widgets %s", inImGuiWidgets ? "yes" : "no");
         return inImGuiWidgets;
     };
     getEventDispatcher()->addEventListenerWithSceneGraphPriority(listener, this);
@@ -46,40 +42,17 @@ void ImGuiLayer::visit(cocos2d::Renderer *renderer, const cocos2d::Mat4 &parentT
 void ImGuiLayer::onDraw()
 {
     glUseProgram(0);
+    if (CCIMGUI::getInstance()->getWindow()) {
+		ImGuiIO& io = ImGui::GetIO();
+		io.DeltaTime = Director::getInstance()->getDeltaTime();
 
-    if (window) {
+        // create frame
         ImGui_ImplGlfw_NewFrame();
 
-        // 1. Show a simple window
-        // Tip: if we don't call ImGui::Begin()/ImGui::End() the widgets appears in a window automatically called "Debug"
-        {
-            static float f = 0.0f;
-            ImGui::Text("Hello, world!");
-            ImGui::SliderFloat("float", &f, 0.0f, 1.0f);
-            ImGui::ColorEdit3("clear color", (float*)&clear_color);
-            if (ImGui::Button("Test Window")) show_test_window ^= 1;
-            if (ImGui::Button("Another Window")) show_another_window ^= 1;
-            ImGui::Text("Application average %.3f ms/frame (%.1f FPS)", 1000.0f / ImGui::GetIO().Framerate, ImGui::GetIO().Framerate);
-        }
+        // draw all gui
+		CCIMGUI::getInstance()->updateImGUI();
 
-        // 2. Show another simple window, this time using an explicit Begin/End pair
-        if (show_another_window)
-        {
-            ImGui::SetNextWindowSize(ImVec2(200,100), ImGuiSetCond_FirstUseEver);
-            ImGui::Begin("Another Window", &show_another_window);
-
-            ImGui::Text("Hello");
-            ImGui::End();
-        }
-
-        // 3. Show the ImGui test window. Most of the sample code is in ImGui::ShowTestWindow()
-        if (show_test_window)
-        {
-            ImGui::SetNextWindowPos(ImVec2(650, 20), ImGuiSetCond_FirstUseEver);
-            ImGui::ShowTestWindow(&show_test_window);
-        }
-
-        // Rendering
+        // rendering
         ImGui::Render();
     }
 	glUseProgram(1);
