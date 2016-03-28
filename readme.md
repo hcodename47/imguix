@@ -6,11 +6,20 @@
 
 ![screen](imguix.png)
 
-TODO:
-imguix use fixed pipeline on mac and programmable pipline on win32 to render imgui.
-Need to fix it.
+## how to integrate imguix
 
-detail:
+Files:
 
-- [Classes/imgui/imgui_impl_glfw_win32.cpp](Classes/imgui/imgui_impl_glfw_win32.cpp)
-- [Classes/imgui/imgui_impl_glfw_mac.cpp](Classes/imgui/imgui_impl_glfw_mac.cpp)
+- Classes/imgui
+- Classes/CCIMGUI.h
+- Classes/CCIMGUI.cpp
+- Classes/IMGUIGLViewImpl.h
+- Classes/IMGUIGLViewImpl.cpp
+- Classes/ImGuiLayer.h
+- Classes/ImGuiLayer.cpp
+
+Create GLView:
+
+```
+director->setOpenGLView(IMGUIGLViewImpl::createWithRect("imguix", Rect(0, 0, width, height)));
+```
