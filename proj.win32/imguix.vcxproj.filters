@@ -33,17 +33,17 @@
     <ClCompile Include="..\Classes\imgui\imgui_draw.cpp">
       <Filter>src\imgui</Filter>
     </ClCompile>
-    <ClCompile Include="..\Classes\IMGUIGLViewImpl.cpp">
-      <Filter>src</Filter>
-    </ClCompile>
     <ClCompile Include="..\Classes\imgui\imgui_impl_glfw_win32.cpp">
       <Filter>src\imgui</Filter>
     </ClCompile>
-    <ClCompile Include="..\Classes\ImGuiLayer.cpp">
-      <Filter>src</Filter>
+    <ClCompile Include="..\Classes\imgui\CCIMGUI.cpp">
+      <Filter>src\imgui</Filter>
     </ClCompile>
-    <ClCompile Include="..\Classes\CCIMGUI.cpp">
-      <Filter>src</Filter>
+    <ClCompile Include="..\Classes\imgui\IMGUIGLViewImpl.cpp">
+      <Filter>src\imgui</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\imgui\ImGuiLayer.cpp">
+      <Filter>src\imgui</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -77,14 +77,14 @@
     <ClInclude Include="..\Classes\imgui\stb_truetype.h">
       <Filter>src\imgui</Filter>
     </ClInclude>
-    <ClInclude Include="..\Classes\IMGUIGLViewImpl.h">
-      <Filter>src</Filter>
+    <ClInclude Include="..\Classes\imgui\CCIMGUI.h">
+      <Filter>src\imgui</Filter>
     </ClInclude>
-    <ClInclude Include="..\Classes\ImGuiLayer.h">
-      <Filter>src</Filter>
+    <ClInclude Include="..\Classes\imgui\IMGUIGLViewImpl.h">
+      <Filter>src\imgui</Filter>
     </ClInclude>
-    <ClInclude Include="..\Classes\CCIMGUI.h">
-      <Filter>src</Filter>
+    <ClInclude Include="..\Classes\imgui\ImGuiLayer.h">
+      <Filter>src\imgui</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
