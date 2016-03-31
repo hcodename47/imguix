@@ -1,6 +1,6 @@
 #include "ImGuiLayer.h"
-#include "imgui/imgui.h"
-#include "imgui/imgui_impl_glfw.h"
+#include "imgui.h"
+#include "imgui_impl_glfw.h"
 #include "CCIMGUI.h"
 
 USING_NS_CC;
