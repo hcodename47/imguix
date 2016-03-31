@@ -8,18 +8,24 @@
 
 ## how to integrate imguix
 
-Files:
+- all you need are `Classes/imgui` folder
 
-- Classes/imgui
-- Classes/CCIMGUI.h
-- Classes/CCIMGUI.cpp
-- Classes/IMGUIGLViewImpl.h
-- Classes/IMGUIGLViewImpl.cpp
-- Classes/ImGuiLayer.h
-- Classes/ImGuiLayer.cpp
+- create GLView:
 
-Create GLView:
+  ```
+  director->setOpenGLView(IMGUIGLViewImpl::createWithRect("imguix", Rect(0, 0, width,   height)));
+  ```
 
-```
-director->setOpenGLView(IMGUIGLViewImpl::createWithRect("imguix", Rect(0, 0, width, height)));
-```
+## how to use
+
+   ```
+   // add ui
+   CCIMGUI::getInstance()->addImGUI([=](){
+       {
+           ImGui::Text("Hello, world!");
+       }
+   }, "demoid");
+
+   // remove ui
+   CCIMGUI::getInstance()->removeImGUI("demoid");
+   ```

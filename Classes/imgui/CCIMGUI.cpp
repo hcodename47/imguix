@@ -92,33 +92,37 @@ void CCIMGUI::updateImGUI()
 	}
 }
 
-void CCIMGUI::removeImGUI(std::string name)
+void CCIMGUI::removeImGUI(const std::string& name)
 {
 	auto iter = _callPiplines.find(name);
 	if (iter != _callPiplines.end())
 		_callPiplines.erase(iter);
 }
 
-void CCIMGUI::setValue(bool value, std::string uid)
+void CCIMGUI::setValue(bool value, const std::string& uid)
 {
-	CCIMGUI_Value* v = new (std::nothrow)CCIMGUI_Value();
-	v->value = (void*)value;
-	_values[uid] = v;
+    if (_values.find(uid) == _values.end()) {
+        _values[uid] = new (std::nothrow)CCImValue(value);
+    } else {
+        _values[uid]->setValue(value);
+    }
 }
 
-void CCIMGUI::setValue(int value, std::string uid)
+void CCIMGUI::setValue(int value, const std::string& uid)
 {
-	CCIMGUI_Value* v = new (std::nothrow)CCIMGUI_Value();
-	v->value = (void*)value;
-	_values[uid] = v;
+    if (_values.find(uid) == _values.end()) {
+        _values[uid] = new (std::nothrow)CCImValue(value);
+    } else {
+        _values[uid]->setValue(value);
+    }
 }
 
-CCIMGUI_Value* CCIMGUI::getValue(std::string uid)
+CCImValue* CCIMGUI::getValue(const std::string& uid)
 {
 	return _values[uid];
 }
 
-void CCIMGUI::removeValue(std::string uid)
+void CCIMGUI::removeValue(const std::string& uid)
 {
 	_values.erase(uid);
 }
