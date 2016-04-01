@@ -39,10 +39,10 @@
     <ClCompile Include="..\Classes\imgui\CCIMGUI.cpp">
       <Filter>src\imgui</Filter>
     </ClCompile>
-    <ClCompile Include="..\Classes\imgui\IMGUIGLViewImpl.cpp">
+    <ClCompile Include="..\Classes\imgui\CCIMGUIGLViewImpl.cpp">
       <Filter>src\imgui</Filter>
     </ClCompile>
-    <ClCompile Include="..\Classes\imgui\ImGuiLayer.cpp">
+    <ClCompile Include="..\Classes\imgui\CCImGuiLayer.cpp">
       <Filter>src\imgui</Filter>
     </ClCompile>
   </ItemGroup>
@@ -80,10 +80,10 @@
     <ClInclude Include="..\Classes\imgui\CCIMGUI.h">
       <Filter>src\imgui</Filter>
     </ClInclude>
-    <ClInclude Include="..\Classes\imgui\IMGUIGLViewImpl.h">
+    <ClInclude Include="..\Classes\imgui\CCIMGUIGLViewImpl.h">
       <Filter>src\imgui</Filter>
     </ClInclude>
-    <ClInclude Include="..\Classes\imgui\ImGuiLayer.h">
+    <ClInclude Include="..\Classes\imgui\CCImGuiLayer.h">
       <Filter>src\imgui</Filter>
     </ClInclude>
   </ItemGroup>
