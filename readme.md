@@ -12,8 +12,32 @@
 
 - create GLView:
 
+
   ```
+  // include headers
+  #if (CC_TARGET_PLATFORM == CC_PLATFORM_WIN32) || (CC_TARGET_PLATFORM == CC_PLATFORM_MAC)
+  #include "CCIMGUIGLViewImpl.h"
+  #include "CCImGuiLayer.h"
+  #endif
+  ```
+
+  ```
+  // create glview
   director->setOpenGLView(IMGUIGLViewImpl::createWithRect("imguix", Rect(0, 0, width,   height)));
+  ```
+
+  ```
+  // add imgui layer on the top
+  #if (CC_TARGET_PLATFORM == CC_PLATFORM_WIN32) || (CC_TARGET_PLATFORM == CC_PLATFORM_MAC)
+      // ImGui is always on the top
+      Director::getInstance()->getScheduler()->schedule([](float)
+      {
+         if (!Director::getInstance()->getRunningScene()->getChildByName("ImGUILayer"))
+         {
+             Director::getInstance()->getRunningScene()->addChild(ImGuiLayer::create(), INT_MAX,   "ImGUILayer");
+         }
+      }, this, 0, false, "checkImGUI");
+  #endif
   ```
 
 ## how to use
