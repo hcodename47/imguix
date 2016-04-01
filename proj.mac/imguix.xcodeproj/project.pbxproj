@@ -26,8 +26,8 @@
 		65864E89AE5B86C9D1F66D1E /* res in Resources */ = {isa = PBXBuildFile; fileRef = 7FDD41ADB08C3C9247273E5B /* res */; };
 		8262943E1AAF051F00CB7CF7 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8262943D1AAF051F00CB7CF7 /* Security.framework */; };
 		9FE9812D1CAD4F850038012F /* CCIMGUI.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9FE981271CAD4F850038012F /* CCIMGUI.cpp */; };
-		9FE9812E1CAD4F850038012F /* IMGUIGLViewImpl.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9FE981291CAD4F850038012F /* IMGUIGLViewImpl.cpp */; };
-		9FE9812F1CAD4F850038012F /* ImGuiLayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9FE9812B1CAD4F850038012F /* ImGuiLayer.cpp */; };
+		9FE981441CAE1F9A0038012F /* CCIMGUIGLViewImpl.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9FE981401CAE1F9A0038012F /* CCIMGUIGLViewImpl.cpp */; };
+		9FE981451CAE1F9A0038012F /* CCImGuiLayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9FE981421CAE1F9A0038012F /* CCImGuiLayer.cpp */; };
 		ED545A7E1B68A1FA00C3958E /* libiconv.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = ED545A7D1B68A1FA00C3958E /* libiconv.dylib */; };
 		F0F24BEB88841CFBFE570287 /* libcocos2d Mac.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5CC84510B1413B3FCD7DE99B /* libcocos2d Mac.a */; };
 /* End PBXBuildFile section */
@@ -67,10 +67,10 @@
 		8262943D1AAF051F00CB7CF7 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		9FE981271CAD4F850038012F /* CCIMGUI.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CCIMGUI.cpp; sourceTree = "<group>"; };
 		9FE981281CAD4F850038012F /* CCIMGUI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCIMGUI.h; sourceTree = "<group>"; };
-		9FE981291CAD4F850038012F /* IMGUIGLViewImpl.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = IMGUIGLViewImpl.cpp; sourceTree = "<group>"; };
-		9FE9812A1CAD4F850038012F /* IMGUIGLViewImpl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IMGUIGLViewImpl.h; sourceTree = "<group>"; };
-		9FE9812B1CAD4F850038012F /* ImGuiLayer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ImGuiLayer.cpp; sourceTree = "<group>"; };
-		9FE9812C1CAD4F850038012F /* ImGuiLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImGuiLayer.h; sourceTree = "<group>"; };
+		9FE981401CAE1F9A0038012F /* CCIMGUIGLViewImpl.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CCIMGUIGLViewImpl.cpp; sourceTree = "<group>"; };
+		9FE981411CAE1F9A0038012F /* CCIMGUIGLViewImpl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCIMGUIGLViewImpl.h; sourceTree = "<group>"; };
+		9FE981421CAE1F9A0038012F /* CCImGuiLayer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CCImGuiLayer.cpp; sourceTree = "<group>"; };
+		9FE981431CAE1F9A0038012F /* CCImGuiLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCImGuiLayer.h; sourceTree = "<group>"; };
 		BF170DB012928DE900B8313A /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
 		BF170DB412928DE900B8313A /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
 		BF1C47EA1293683800B63C5D /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
@@ -109,10 +109,10 @@
 			children = (
 				9FE981271CAD4F850038012F /* CCIMGUI.cpp */,
 				9FE981281CAD4F850038012F /* CCIMGUI.h */,
-				9FE981291CAD4F850038012F /* IMGUIGLViewImpl.cpp */,
-				9FE9812A1CAD4F850038012F /* IMGUIGLViewImpl.h */,
-				9FE9812B1CAD4F850038012F /* ImGuiLayer.cpp */,
-				9FE9812C1CAD4F850038012F /* ImGuiLayer.h */,
+				9FE981401CAE1F9A0038012F /* CCIMGUIGLViewImpl.cpp */,
+				9FE981411CAE1F9A0038012F /* CCIMGUIGLViewImpl.h */,
+				9FE981421CAE1F9A0038012F /* CCImGuiLayer.cpp */,
+				9FE981431CAE1F9A0038012F /* CCImGuiLayer.h */,
 				19BE2FB91BE46CF600CF4257 /* imconfig.h */,
 				19BE2FBA1BE46CF600CF4257 /* imgui.cpp */,
 				19BE2FBB1BE46CF600CF4257 /* imgui.h */,
@@ -291,14 +291,14 @@
 			files = (
 				46880B8919C43A87006E1F66 /* AppDelegate.cpp in Sources */,
 				19BE2FC41BE46CF600CF4257 /* imgui.cpp in Sources */,
+				9FE981441CAE1F9A0038012F /* CCIMGUIGLViewImpl.cpp in Sources */,
 				196A09C01C07573E00E61A2C /* imgui_impl_glfw_mac.cpp in Sources */,
-				9FE9812F1CAD4F850038012F /* ImGuiLayer.cpp in Sources */,
-				9FE9812E1CAD4F850038012F /* IMGUIGLViewImpl.cpp in Sources */,
 				503AE10517EB98FF00D1A890 /* main.cpp in Sources */,
 				19BE2FC61BE46CF600CF4257 /* imgui_draw.cpp in Sources */,
 				9FE9812D1CAD4F850038012F /* CCIMGUI.cpp in Sources */,
 				19BE2FC51BE46CF600CF4257 /* imgui_demo.cpp in Sources */,
 				46880B8B19C43A87006E1F66 /* HelloWorldScene.cpp in Sources */,
+				9FE981451CAE1F9A0038012F /* CCImGuiLayer.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
