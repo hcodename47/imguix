@@ -1,7 +1,10 @@
 #include "AppDelegate.h"
 #include "HelloWorldScene.h"
-#include "IMGUIGLViewImpl.h"
-#include "ImGuiLayer.h"
+
+#if (CC_TARGET_PLATFORM == CC_PLATFORM_WIN32) || (CC_TARGET_PLATFORM == CC_PLATFORM_MAC)
+#include "CCIMGUIGLViewImpl.h"
+#include "CCImGuiLayer.h"
+#endif
 
 USING_NS_CC;
 
@@ -49,10 +52,20 @@ bool AppDelegate::applicationDidFinishLaunching() {
 
     // create a scene. it's an autorelease object
     auto scene = HelloWorld::createScene();
-    scene->addChild(ImGuiLayer::create(), INT_MAX);
     
     // run
     director->runWithScene(scene);
+
+#if (CC_TARGET_PLATFORM == CC_PLATFORM_WIN32) || (CC_TARGET_PLATFORM == CC_PLATFORM_MAC)
+    // ImGui is always on the top
+    Director::getInstance()->getScheduler()->schedule([](float)
+    {
+       if (!Director::getInstance()->getRunningScene()->getChildByName("ImGUILayer"))
+       {
+           Director::getInstance()->getRunningScene()->addChild(ImGuiLayer::create(), INT_MAX, "ImGUILayer");
+       }
+    }, this, 0, false, "checkImGUI");
+#endif
 
     return true;
 }
