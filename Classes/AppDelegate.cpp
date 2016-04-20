@@ -4,9 +4,32 @@
 #if (CC_TARGET_PLATFORM == CC_PLATFORM_WIN32) || (CC_TARGET_PLATFORM == CC_PLATFORM_MAC)
 #include "CCIMGUIGLViewImpl.h"
 #include "CCImGuiLayer.h"
+#include "CCIMGUI.h"
+
+    #ifdef IMGUI_LUA
+    #include "imgui/imgui_lua.hpp"
+    #endif // IMGUI_LUA
+
 #endif
 
 USING_NS_CC;
+
+#if IMGUI_LUA > 0
+static int imgui_lua_test()
+{
+    static lua_State *L = luaL_newstate();
+    luaL_openlibs(L);
+    luaopen_imgui(L);
+
+    std::string fn = FileUtils::getInstance()->fullPathForFilename("res/main.lua");
+    if (luaL_dofile(L, fn.c_str()))
+    {
+        CCLOG("%s", lua_tostring(L, -1));
+    }
+
+    return 0;
+}
+#endif // IMGUI_LUA
 
 AppDelegate::AppDelegate() {
 
@@ -66,6 +89,10 @@ bool AppDelegate::applicationDidFinishLaunching() {
        }
     }, this, 0, false, "checkImGUI");
 #endif
+
+#if IMGUI_LUA > 0
+    imgui_lua_test();
+#endif // IMGUI_LUA
 
     return true;
 }

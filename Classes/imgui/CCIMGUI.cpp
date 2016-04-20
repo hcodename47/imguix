@@ -28,15 +28,16 @@ CCIMGUI* CCIMGUI::getInstance()
 
 void CCIMGUI::init()
 {
-#if 0
-	//_callPiplines["styleEditor"] = std::bind(&CCIMGUI::displaySetupStyle, this);
+#if 1
+	_callPiplines["styleEditor"] = std::bind(&CCIMGUI::displaySetupStyle, this);
 	ImGuiStyle& style = ImGui::GetStyle();
 
 	ImVec4 col_text = ImColor::HSV(hue / 255.f, 20.f / 255.f, 235.f / 255.f);
 	ImVec4 col_main = ImColor::HSV(hue / 255.f, col_main_sat, col_main_val);
 	ImVec4 col_back = ImColor::HSV(hue / 255.f, col_back_sat, col_back_val);
 	ImVec4 col_area = ImColor::HSV(hue / 255.f, col_area_sat, col_area_val);
-	style.WindowFillAlphaDefault = 0.98f;
+//	style.WindowFillAlphaDefault = 0.98f;
+    style.Alpha = 0.98f;
 	style.Colors[ImGuiCol_Text] = ImVec4(col_text.x, col_text.y, col_text.z, 1.00f);
 	style.Colors[ImGuiCol_TextDisabled] = ImVec4(col_text.x, col_text.y, col_text.z, 0.58f);
 	style.Colors[ImGuiCol_WindowBg] = ImVec4(col_back.x, col_back.y, col_back.z, 1.00f);
@@ -78,7 +79,7 @@ void CCIMGUI::init()
 	style.Colors[ImGuiCol_PlotHistogram] = ImVec4(col_text.x, col_text.y, col_text.z, 0.63f);
 	style.Colors[ImGuiCol_PlotHistogramHovered] = ImVec4(col_main.x, col_main.y, col_main.z, 1.00f);
 	style.Colors[ImGuiCol_TextSelectedBg] = ImVec4(col_main.x, col_main.y, col_main.z, 0.43f);
-	style.Colors[ImGuiCol_TooltipBg] = ImVec4(col_main.x, col_main.y, col_main.z, 0.92f);
+//	style.Colors[ImGuiCol_TooltipBg] = ImVec4(col_main.x, col_main.y, col_main.z, 0.92f);
 	style.Colors[ImGuiCol_ModalWindowDarkening] = ImVec4(0.20f, 0.20f, 0.20f, 0.35f);
 #endif
 }

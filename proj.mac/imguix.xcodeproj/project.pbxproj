@@ -28,6 +28,8 @@
 		9FE9812D1CAD4F850038012F /* CCIMGUI.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9FE981271CAD4F850038012F /* CCIMGUI.cpp */; };
 		9FE981441CAE1F9A0038012F /* CCIMGUIGLViewImpl.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9FE981401CAE1F9A0038012F /* CCIMGUIGLViewImpl.cpp */; };
 		9FE981451CAE1F9A0038012F /* CCImGuiLayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9FE981421CAE1F9A0038012F /* CCImGuiLayer.cpp */; };
+		9FFAD50E1CC3661B00986F50 /* imgui_lua.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9FFAD50C1CC3661B00986F50 /* imgui_lua.cpp */; };
+		9FFAD51E1CC38E1900986F50 /* libluajit.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9FFAD5191CC38E1900986F50 /* libluajit.a */; };
 		ED545A7E1B68A1FA00C3958E /* libiconv.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = ED545A7D1B68A1FA00C3958E /* libiconv.dylib */; };
 		F0F24BEB88841CFBFE570287 /* libcocos2d Mac.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5CC84510B1413B3FCD7DE99B /* libcocos2d Mac.a */; };
 /* End PBXBuildFile section */
@@ -71,6 +73,13 @@
 		9FE981411CAE1F9A0038012F /* CCIMGUIGLViewImpl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCIMGUIGLViewImpl.h; sourceTree = "<group>"; };
 		9FE981421CAE1F9A0038012F /* CCImGuiLayer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CCImGuiLayer.cpp; sourceTree = "<group>"; };
 		9FE981431CAE1F9A0038012F /* CCImGuiLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCImGuiLayer.h; sourceTree = "<group>"; };
+		9FFAD50C1CC3661B00986F50 /* imgui_lua.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = imgui_lua.cpp; sourceTree = "<group>"; };
+		9FFAD50D1CC3661B00986F50 /* imgui_lua.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = imgui_lua.hpp; sourceTree = "<group>"; };
+		9FFAD5111CC38E1900986F50 /* lauxlib.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = lauxlib.h; sourceTree = "<group>"; };
+		9FFAD5121CC38E1900986F50 /* lua.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = lua.h; sourceTree = "<group>"; };
+		9FFAD5131CC38E1900986F50 /* luaconf.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = luaconf.h; sourceTree = "<group>"; };
+		9FFAD5141CC38E1900986F50 /* lualib.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = lualib.h; sourceTree = "<group>"; };
+		9FFAD5191CC38E1900986F50 /* libluajit.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libluajit.a; sourceTree = "<group>"; };
 		BF170DB012928DE900B8313A /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
 		BF170DB412928DE900B8313A /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
 		BF1C47EA1293683800B63C5D /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
@@ -98,6 +107,7 @@
 				5087E76917EB910900C73F5D /* OpenAL.framework in Frameworks */,
 				5087E76B17EB910900C73F5D /* AudioToolbox.framework in Frameworks */,
 				F0F24BEB88841CFBFE570287 /* libcocos2d Mac.a in Frameworks */,
+				9FFAD51E1CC38E1900986F50 /* libluajit.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -124,6 +134,8 @@
 				19BE2FC11BE46CF600CF4257 /* stb_rect_pack.h */,
 				19BE2FC21BE46CF600CF4257 /* stb_textedit.h */,
 				19BE2FC31BE46CF600CF4257 /* stb_truetype.h */,
+				9FFAD50C1CC3661B00986F50 /* imgui_lua.cpp */,
+				9FFAD50D1CC3661B00986F50 /* imgui_lua.hpp */,
 			);
 			path = imgui;
 			sourceTree = "<group>";
@@ -195,6 +207,7 @@
 		46880B8319C43A87006E1F66 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				9FFAD50F1CC38E1900986F50 /* luajit */,
 				19BE2FB81BE46CF600CF4257 /* imgui */,
 				46880B8419C43A87006E1F66 /* AppDelegate.cpp */,
 				46880B8519C43A87006E1F66 /* AppDelegate.h */,
@@ -223,6 +236,42 @@
 				503AE10417EB98FF00D1A890 /* Prefix.pch */,
 			);
 			name = mac;
+			sourceTree = "<group>";
+		};
+		9FFAD50F1CC38E1900986F50 /* luajit */ = {
+			isa = PBXGroup;
+			children = (
+				9FFAD5101CC38E1900986F50 /* include */,
+				9FFAD5151CC38E1900986F50 /* prebuilt */,
+			);
+			path = luajit;
+			sourceTree = "<group>";
+		};
+		9FFAD5101CC38E1900986F50 /* include */ = {
+			isa = PBXGroup;
+			children = (
+				9FFAD5111CC38E1900986F50 /* lauxlib.h */,
+				9FFAD5121CC38E1900986F50 /* lua.h */,
+				9FFAD5131CC38E1900986F50 /* luaconf.h */,
+				9FFAD5141CC38E1900986F50 /* lualib.h */,
+			);
+			path = include;
+			sourceTree = "<group>";
+		};
+		9FFAD5151CC38E1900986F50 /* prebuilt */ = {
+			isa = PBXGroup;
+			children = (
+				9FFAD5181CC38E1900986F50 /* mac */,
+			);
+			path = prebuilt;
+			sourceTree = "<group>";
+		};
+		9FFAD5181CC38E1900986F50 /* mac */ = {
+			isa = PBXGroup;
+			children = (
+				9FFAD5191CC38E1900986F50 /* libluajit.a */,
+			);
+			path = mac;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -294,6 +343,7 @@
 				9FE981441CAE1F9A0038012F /* CCIMGUIGLViewImpl.cpp in Sources */,
 				196A09C01C07573E00E61A2C /* imgui_impl_glfw_mac.cpp in Sources */,
 				503AE10517EB98FF00D1A890 /* main.cpp in Sources */,
+				9FFAD50E1CC3661B00986F50 /* imgui_lua.cpp in Sources */,
 				19BE2FC61BE46CF600CF4257 /* imgui_draw.cpp in Sources */,
 				9FE9812D1CAD4F850038012F /* CCIMGUI.cpp in Sources */,
 				19BE2FC51BE46CF600CF4257 /* imgui_demo.cpp in Sources */,
@@ -329,10 +379,17 @@
 					"/Applications/Cocos/frameworks/cocos2d-x-3.8.1/external/glfw3/include/mac",
 				);
 				INFOPLIST_FILE = mac/Info.plist;
-				LIBRARY_SEARCH_PATHS = " /Applications/Cocos/frameworks/cocos2d-x-3.8.1/prebuilt/mac";
+				LIBRARY_SEARCH_PATHS = (
+					"/Applications/Cocos/frameworks/cocos2d-x-3.8.1/prebuilt/mac",
+					"\"$(SRCROOT)/../Classes/luajit/prebuilt/mac\"",
+				);
 				OTHER_LDFLAGS = (
 					"$(_COCOS_LIB_MAC_BEGIN)",
 					"$(_COCOS_LIB_MAC_END)",
+					"-pagezero_size",
+					10000,
+					"-image_base",
+					100000000,
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = cn.imroz.imgui;
 				USER_HEADER_SEARCH_PATHS = "$(_COCOS_HEADER_MAC_BEGIN) $(_COCOS_HEADER_MAC_END)";
@@ -361,10 +418,17 @@
 					"/Applications/Cocos/frameworks/cocos2d-x-3.8.1/external/glfw3/include/mac",
 				);
 				INFOPLIST_FILE = mac/Info.plist;
-				LIBRARY_SEARCH_PATHS = " /Applications/Cocos/frameworks/cocos2d-x-3.8.1/prebuilt/mac";
+				LIBRARY_SEARCH_PATHS = (
+					"/Applications/Cocos/frameworks/cocos2d-x-3.8.1/prebuilt/mac",
+					"\"$(SRCROOT)/../Classes/luajit/prebuilt/mac\"",
+				);
 				OTHER_LDFLAGS = (
 					"$(_COCOS_LIB_MAC_BEGIN)",
 					"$(_COCOS_LIB_MAC_END)",
+					"-pagezero_size",
+					10000,
+					"-image_base",
+					100000000,
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = cn.imroz.imgui;
 				USER_HEADER_SEARCH_PATHS = "$(_COCOS_HEADER_MAC_BEGIN) $(_COCOS_HEADER_MAC_END)";
@@ -381,6 +445,7 @@
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				HEADER_SEARCH_PATHS = (
+					"\"$(SRCROOT)/../Classes/luajit/include\"",
 					"/Applications/Cocos/frameworks/cocos2d-x-3.8.1",
 					"/Applications/Cocos/frameworks/cocos2d-x-3.8.1/cocos",
 					"/Applications/Cocos/frameworks/cocos2d-x-3.8.1/cocos/base",
@@ -410,6 +475,7 @@
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				HEADER_SEARCH_PATHS = (
+					"\"$(SRCROOT)/../Classes/luajit/include\"",
 					"/Applications/Cocos/frameworks/cocos2d-x-3.8.1",
 					"/Applications/Cocos/frameworks/cocos2d-x-3.8.1/cocos",
 					"/Applications/Cocos/frameworks/cocos2d-x-3.8.1/cocos/base",
