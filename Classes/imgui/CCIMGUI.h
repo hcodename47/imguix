@@ -8,6 +8,8 @@
 #include "cocos2d.h"
 #include "imgui.h"
 
+#define IMGUI_LUA 1
+
 USING_NS_CC;
 
 class CCImValue // as cocos2d::Value
