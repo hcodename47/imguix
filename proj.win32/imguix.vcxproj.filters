@@ -45,6 +45,9 @@
     <ClCompile Include="..\Classes\imgui\CCImGuiLayer.cpp">
       <Filter>src\imgui</Filter>
     </ClCompile>
+    <ClCompile Include="..\Classes\imgui\imgui_lua.cpp">
+      <Filter>src\imgui</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="main.h">
@@ -84,6 +87,9 @@
       <Filter>src\imgui</Filter>
     </ClInclude>
     <ClInclude Include="..\Classes\imgui\CCImGuiLayer.h">
+      <Filter>src\imgui</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\imgui\imgui_lua.hpp">
       <Filter>src\imgui</Filter>
     </ClInclude>
   </ItemGroup>
