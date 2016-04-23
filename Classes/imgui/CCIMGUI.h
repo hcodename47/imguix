@@ -96,6 +96,10 @@ public:
 	//-------------------------------------------------------
 	void setShowStyleEditor(bool show) { isShowSetupStyle = show; };
 
+    // imgui helper
+    void image(const std::string& fn, int w = -1, int h = -1);
+    bool imageButton(const std::string& fn, int w = -1, int h = -1);
+
 private:
     bool isShowSetupStyle = false;
     void displaySetupStyle();

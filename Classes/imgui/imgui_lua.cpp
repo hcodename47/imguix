@@ -190,70 +190,32 @@ static int imgui_image(lua_State *L) {
 #ifdef COCOS2D_VERSION
     int args = lua_gettop(L);
     std::string fn(luaL_checkstring(L, 1));
-    cocos2d::Texture2D *texture = cocos2d::Director::getInstance()->getTextureCache()->addImage(fn);
-    ImVec2 size(texture->getPixelsWide(), texture->getPixelsHigh());
+    int w = -1;
+    int h = -1;
+
     if (args == 3) {
-        size.x = luaL_checknumber(L, 2);
-        size.y = luaL_checknumber(L, 3);
+        w = luaL_checknumber(L, 2);
+        h = luaL_checknumber(L, 2);
     }
-    if (texture) {
-        ImGui::Image((void*)texture->getName(), size);
-    }
+    CCIMGUI::getInstance()->image(fn, w, h);
 #endif
     return 0;
 }
 static int imgui_imageButton(lua_State *L) {
+    bool ret = false;
 #ifdef COCOS2D_VERSION
     int args = lua_gettop(L);
     std::string fn(luaL_checkstring(L, 1));
-    cocos2d::Texture2D *texture = NULL;
-    ImVec2 uv0(0, 0);
-    ImVec2 uv1(1, 1);
-    ImVec2 size(0, 0);
-
-    if (fn.at(0) == '#') {
-        fn = fn.substr(1, fn.size());
-        SpriteFrame *sf = cocos2d::SpriteFrameCache::getInstance()->getSpriteFrameByName(fn);
-        if (sf) {
-            float atlasWidth = (float)sf->getTexture()->getPixelsWide();
-            float atlasHeight = (float)sf->getTexture()->getPixelsHigh();
-
-            const Rect& rect = sf->getRect();
-            texture = sf->getTexture();
-            if (sf->isRotated()) {
-                // FIXME:
-                uv0.x = rect.origin.x / atlasWidth;
-                uv0.y = rect.origin.y / atlasHeight;
-                uv1.x = (rect.origin.x + rect.size.width) / atlasWidth;
-                uv1.y = (rect.origin.y + rect.size.height) / atlasHeight;
-            } else {
-                uv0.x = rect.origin.x / atlasWidth;
-                uv0.y = rect.origin.y / atlasHeight;
-                uv1.x = (rect.origin.x + rect.size.width) / atlasWidth;
-                uv1.y = (rect.origin.y + rect.size.height) / atlasHeight;
-            }
-
-            size.x = sf->getRect().size.width;
-            size.y = sf->getRect().size.height;
-        }
-    } else {
-        texture = cocos2d::Director::getInstance()->getTextureCache()->addImage(fn);
-        size.x = texture->getPixelsWide();
-        size.y = texture->getPixelsHigh();
-    }
+    int w = -1;
+    int h = -1;
 
     if (args == 3) {
-        size.x = luaL_checknumber(L, 2);
-        size.y = luaL_checknumber(L, 3);
+        w = luaL_checknumber(L, 2);
+        h = luaL_checknumber(L, 3);
     }
-    if (texture) {
-        lua_pushboolean(L, ImGui::ImageButton((ImTextureID)texture->getName(), size, uv0, uv1));
-    } else {
-        lua_pushboolean(L, false);
-    }
-#else
-    lua_pushboolean(L, false);
+    ret = CCIMGUI::getInstance()->imageButton(fn, w, h);
 #endif
+    lua_pushboolean(L, ret);
     return 1;
 }
 static int imgui_collapsingHeader(lua_State *L) {
