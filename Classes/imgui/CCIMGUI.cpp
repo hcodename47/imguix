@@ -128,6 +128,80 @@ void CCIMGUI::removeValue(const std::string& uid)
 	_values.erase(uid);
 }
 
+#include <tuple>
+static std::tuple<Texture2D*, ImVec2, ImVec2, ImVec2> getTextureInfo(const std::string& fn, int w = -1, int h = -1) {
+    std::string name = fn;
+    cocos2d::Texture2D *texture = NULL;
+    ImVec2 uv0(0, 0);
+    ImVec2 uv1(1, 1);
+    ImVec2 size(0, 0);
+
+    // sprite frame
+    if (fn.at(0) == '#') {
+        name = name.substr(1, name.size());
+        SpriteFrame *sf = cocos2d::SpriteFrameCache::getInstance()->getSpriteFrameByName(name);
+        if (sf) {
+            float atlasWidth = (float)sf->getTexture()->getPixelsWide();
+            float atlasHeight = (float)sf->getTexture()->getPixelsHigh();
+
+            const Rect& rect = sf->getRect();
+            texture = sf->getTexture();
+            if (sf->isRotated()) {
+                // FIXME:
+                uv0.x = rect.origin.x / atlasWidth;
+                uv0.y = rect.origin.y / atlasHeight;
+                uv1.x = (rect.origin.x + rect.size.width) / atlasWidth;
+                uv1.y = (rect.origin.y + rect.size.height) / atlasHeight;
+            } else {
+                uv0.x = rect.origin.x / atlasWidth;
+                uv0.y = rect.origin.y / atlasHeight;
+                uv1.x = (rect.origin.x + rect.size.width) / atlasWidth;
+                uv1.y = (rect.origin.y + rect.size.height) / atlasHeight;
+            }
+
+            size.x = sf->getRect().size.width;
+            size.y = sf->getRect().size.height;
+        }
+    } else {
+        texture = cocos2d::Director::getInstance()->getTextureCache()->addImage(fn);
+        size.x = texture->getPixelsWide();
+        size.y = texture->getPixelsHigh();
+    }
+
+    if (w > 0 && h > 0) {
+        size.x = w;
+        size.y = h;
+    }
+
+    return std::make_tuple(texture, size, uv0, uv1);
+}
+
+void CCIMGUI::image(const std::string& fn, int w, int h)
+{
+    cocos2d::Texture2D *texture = NULL;
+    ImVec2 uv0(0, 0);
+    ImVec2 uv1(1, 1);
+    ImVec2 size(0, 0);
+
+    std::tie(texture, size, uv0, uv1) = getTextureInfo(fn, w, h);
+    if (texture) {
+        ImGui::Image((ImTextureID)texture->getName(), size, uv0, uv1);
+    }
+}
+bool CCIMGUI::imageButton(const std::string& fn, int w, int h)
+{
+    cocos2d::Texture2D *texture = NULL;
+    ImVec2 uv0(0, 0);
+    ImVec2 uv1(1, 1);
+    ImVec2 size(0, 0);
+
+    std::tie(texture, size, uv0, uv1) = getTextureInfo(fn, w, h);
+    if (texture) {
+        return ImGui::ImageButton((ImTextureID)texture->getName(), size, uv0, uv1);
+    }
+    return false;
+}
+
 void CCIMGUI::displaySetupStyle()
 {
 	if (isShowSetupStyle) {
