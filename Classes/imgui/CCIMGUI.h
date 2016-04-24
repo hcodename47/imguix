@@ -110,6 +110,8 @@ private:
 
     std::unordered_map<std::string, std::function<void()>> _callPiplines;
     std::unordered_map<std::string, CCImValue*> _values;
+
+    std::unordered_map<unsigned int, int> _usedTextureIdMap;
 };
 
 #endif // __IMGUILAYER_H__

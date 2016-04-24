@@ -86,6 +86,8 @@ void CCIMGUI::init()
 
 void CCIMGUI::updateImGUI()
 {
+    _usedTextureIdMap.clear();
+
 	auto iter = _callPiplines.begin();
 	for (; iter != _callPiplines.end(); ++iter)
 	{
@@ -185,7 +187,21 @@ void CCIMGUI::image(const std::string& fn, int w, int h)
 
     std::tie(texture, size, uv0, uv1) = getTextureInfo(fn, w, h);
     if (texture) {
-        ImGui::Image((ImTextureID)texture->getName(), size, uv0, uv1);
+        bool needToPopID = false;
+        GLuint texId = texture->getName();
+        if (_usedTextureIdMap.find(texId) == _usedTextureIdMap.end()) {
+            _usedTextureIdMap[texId] = 0;
+        } else {
+            _usedTextureIdMap[texId]++;
+            ImGui::PushID(_usedTextureIdMap[texId]);
+            needToPopID = true;
+        }
+
+        ImGui::Image((ImTextureID)texId, size, uv0, uv1);
+
+        if (needToPopID) {
+            ImGui::PopID();
+        }
     }
 }
 bool CCIMGUI::imageButton(const std::string& fn, int w, int h)
@@ -195,11 +211,26 @@ bool CCIMGUI::imageButton(const std::string& fn, int w, int h)
     ImVec2 uv1(1, 1);
     ImVec2 size(0, 0);
 
+    bool ret = false;
     std::tie(texture, size, uv0, uv1) = getTextureInfo(fn, w, h);
     if (texture) {
-        return ImGui::ImageButton((ImTextureID)texture->getName(), size, uv0, uv1);
+        bool needToPopID = false;
+        GLuint texId = texture->getName();
+        if (_usedTextureIdMap.find(texId) == _usedTextureIdMap.end()) {
+            _usedTextureIdMap[texId] = 0;
+        } else {
+            _usedTextureIdMap[texId]++;
+            ImGui::PushID(_usedTextureIdMap[texId]);
+            needToPopID = true;
+        }
+        
+        ret = ImGui::ImageButton((ImTextureID)texture->getName(), size, uv0, uv1);
+
+        if (needToPopID) {
+            ImGui::PopID();
+        }
     }
-    return false;
+    return ret;
 }
 
 void CCIMGUI::displaySetupStyle()
