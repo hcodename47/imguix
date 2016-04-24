@@ -58,6 +58,11 @@
    
    // create button with SpriteFrameName, auto pushID / popID with texture id
    CCIMGUI:: getInstance()->imageButton("#framename");
+   
+   // chinese font
+   // http://www.slackware.com/~alien/slackbuilds/wqy-zenhei-font-ttf/build/wqy-zenhei-0.4.23-1.tar.gz
+   ImGuiIO &io = ImGui::GetIO();
+   io.Fonts->AddFontFromFileTTF("res/wqy-zenhei.ttf", 18.0f, 0, io.Fonts->GetGlyphRangesChinese());
    ```
 
 ## lua binding
