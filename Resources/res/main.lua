@@ -59,7 +59,7 @@ imgui.draw = function ()
 
         if imgui.imageButton("#CoinSpin01.png") then print("CoinSpin01 1") end
         imgui.sameLine() if imgui.imageButton("#CoinSpin01.png") then print("CoinSpin01 2") end
-        imgui.sameLine() if imgui.imageButton("#CoinSpin01.png") then print("CoinSpin01 3") end
+        imgui.sameLine() if imgui.imageButton("#AddCoinButton.png", 30, 30) then print("AddCoinButton") end
 
         imgui.endToLua()
     end
