@@ -53,7 +53,11 @@ imgui.draw = function ()
 
         if imgui.imageButton("res/1.png") then print("image button click") end
         imgui.sameLine()
+
+        -- imageButton with same image res, you must push string/integer prefixes
+        imgui.pushId(3.1415926)
         if imgui.imageButton("res/1.png") then print("image button click 2") end
+        imgui.popId()
 
         imgui.endToLua()
     end
