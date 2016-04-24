@@ -42,7 +42,7 @@
 
 ## how to use
 
-   ```
+   ```c++
    // add ui
    CCIMGUI::getInstance()->addImGUI([=](){
        {
@@ -52,4 +52,43 @@
 
    // remove ui
    CCIMGUI::getInstance()->removeImGUI("demoid");
+   
+   // create button with file name, auto pushID / popID with texture id
+   CCIMGUI::getInstance()->imageButton("filename.png");
+   
+   // create button with SpriteFrameName, auto pushID / popID with texture id
+   CCIMGUI:: getInstance()->imageButton("#framename");
    ```
+
+## lua binding
+
+1. ImGui::ImageButton -> imgui.imageButton
+
+```lua
+-- text
+imgui.text("Hello, World!")
+    
+-- text button
+imgui.button("text button")
+    
+-- new window
+if imgui.begin("Toolbar") then
+end
+
+-- input text
+buf = "input"
+ret, buf = imgui.inputText("input", buf, 256)
+
+-- slider
+float = 3
+ret, float = imgui.sliderFloat("float", float, 0, 8)
+
+-- image button
+
+-- create with image file name
+if imgui.imageButton("res/1.png") then print("image button click 1") end
+-- or create with sprite frame name
+if imgui.imageButton("#CoinSpin01.png") then print("CoinSpin01 1") end
+```
+
+[more sample in main.lua](https://github.com/c0i/imguix/blob/master/Resources/res/main.lua)
