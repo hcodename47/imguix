@@ -638,6 +638,20 @@ static int imgui_vSliderInt(lua_State *L) {
     return 2;
 }
 
+// ID scopes
+static int imgui_pushId(lua_State *L) {
+    if (lua_type(L, 1) == LUA_TNUMBER) {
+        ImGui::PushID(luaL_checknumber(L, 1));
+    } else if (lua_type(L, 1) == LUA_TSTRING) {
+        ImGui::PushID(luaL_checkstring(L, 1));
+    }
+    return 0;
+}
+static int imgui_popId(lua_State *L) {
+    ImGui::PopID();
+    return 0;
+}
+
 #define M(n) {#n, imgui_##n}
 static const luaL_Reg imgui_methods[] = {
     // Main
@@ -717,6 +731,8 @@ static const luaL_Reg imgui_methods[] = {
     M(endMenu),
     M(menuItem),
 
+    M(pushId),
+    M(popId),
     {NULL,  NULL}
 };
 
