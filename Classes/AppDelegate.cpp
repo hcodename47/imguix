@@ -90,6 +90,8 @@ bool AppDelegate::applicationDidFinishLaunching() {
     }, this, 0, false, "checkImGUI");
 #endif
 
+    SpriteFrameCache::getInstance()->addSpriteFramesWithFile("AllSprites.plist", "AllSprites.png");
+    
 #if IMGUI_LUA > 0
     imgui_lua_test();
 #endif // IMGUI_LUA

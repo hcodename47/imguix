@@ -51,13 +51,15 @@ imgui.draw = function ()
         _, buf = imgui.inputText("[lua] input", buf, 256)
         _, float = imgui.sliderFloat("[lua] float", float, 0, 8)
 
-        if imgui.imageButton("res/1.png") then print("image button click") end
-        imgui.sameLine()
+        if imgui.imageButton("res/1.png") then print("image button click 1") end
+        imgui.sameLine() if imgui.imageButton("res/1.png") then print("image button click 2") end
+        imgui.sameLine() if imgui.imageButton("res/1.png") then print("image button click 3") end
+        imgui.sameLine() if imgui.imageButton("res/1.png") then print("image button click 4") end
+        imgui.sameLine() if imgui.imageButton("res/1.png") then print("image button click 5") end
 
-        -- imageButton with same image res, you must push string/integer prefixes
-        imgui.pushId(3.1415926)
-        if imgui.imageButton("res/1.png") then print("image button click 2") end
-        imgui.popId()
+        if imgui.imageButton("#CoinSpin01.png") then print("CoinSpin01 1") end
+        imgui.sameLine() if imgui.imageButton("#CoinSpin01.png") then print("CoinSpin01 2") end
+        imgui.sameLine() if imgui.imageButton("#CoinSpin01.png") then print("CoinSpin01 3") end
 
         imgui.endToLua()
     end
