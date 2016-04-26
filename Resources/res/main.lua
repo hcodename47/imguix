@@ -33,7 +33,7 @@ end
 imgui.draw = function ()
     setup_mainmenu()
 
-    imgui.text("[lua] Hello, World!")
+    imgui.text("[lua] 中文Hello, World!")
     if imgui.button("[lua] OK") then
         print ("click ok")
     end
@@ -59,7 +59,16 @@ imgui.draw = function ()
 
         if imgui.imageButton("#CoinSpin01.png") then print("CoinSpin01 1") end
         imgui.sameLine() if imgui.imageButton("#CoinSpin01.png") then print("CoinSpin01 2") end
-        imgui.sameLine() if imgui.imageButton("#AddCoinButton.png", 30, 30) then print("AddCoinButton") end
+        imgui.sameLine() if imgui.imageButton("#AddCoinButton.png", 30, 30) then
+
+            print("AddCoinButton")
+            local spr = cc.Sprite.create("res/1.png")
+            spr:setPosition(100, 100)
+            spr:scheduleOnce(function(dt) print ("scheduleOnce") end, 1.0, "xx")
+            spr:schedule(function (dt) print ("schedule") end, 0.5, "update")
+            cc.Director.getInstance():getRunningScene():addChild(spr)
+
+        end
 
         imgui.endToLua()
     end

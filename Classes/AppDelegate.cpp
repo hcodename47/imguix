@@ -12,14 +12,46 @@
 
 #endif
 
+#include "kaguya/kaguya.hpp"
+
 USING_NS_CC;
 
 #if IMGUI_LUA > 0
 static int imgui_lua_test()
 {
-    static lua_State *L = luaL_newstate();
+    static kaguya::State state;
+    lua_State *L = state.state();
+
     luaL_openlibs(L);
     luaopen_imgui(L);
+
+    auto cc = state.newTable();
+    cc["Node"]
+    .setClass(kaguya::ClassMetatable<Node, Ref>()
+              .addStaticFunction("create", &Node::create)
+              .addMemberFunction("addChild", static_cast<void(Node::*)(Node*)>(&Node::addChild))
+              .addMemberFunction("scheduleOnce", static_cast<void(Node::*)(const std::function<void(float)>& callback, float delay, const std::string &key)>(&Node::scheduleOnce))
+              .addMemberFunction("schedule", static_cast<void(Node::*)(const std::function<void(float)>&, float, const std::string &)>(&Node::schedule))
+              );
+
+    cc["Sprite"]
+    .setClass(kaguya::ClassMetatable<Sprite, Node>()
+              .addStaticFunction("create", static_cast<Sprite*(*)(const std::string&)>(&Sprite::create))
+              .addMemberFunction("setPosition", static_cast<void(Sprite::*)(float x, float y)>(&Sprite::setPosition))
+              );
+
+    cc["Director"]
+    .setClass(kaguya::ClassMetatable<Director>()
+              .addStaticFunction("getInstance", static_cast<Director*(*)()>(&Director::getInstance))
+              .addMemberFunction("getRunningScene", static_cast<Scene*(Director::*)()>(&Director::getRunningScene))
+              );
+
+    cc["Scene"]
+    .setClass(kaguya::ClassMetatable<Scene>()
+              .addMemberFunction("addChild", static_cast<void(Scene::*)(Node*)>(&Scene::addChild))
+              );
+
+    state["cc"] = cc;
 
     std::string fn = FileUtils::getInstance()->fullPathForFilename("res/main.lua");
     if (luaL_dofile(L, fn.c_str()))
@@ -91,7 +123,9 @@ bool AppDelegate::applicationDidFinishLaunching() {
 #endif
 
     SpriteFrameCache::getInstance()->addSpriteFramesWithFile("AllSprites.plist", "AllSprites.png");
-    
+//    ImGuiIO &io = ImGui::GetIO();
+//    io.Fonts->AddFontFromFileTTF("res/wqy-zenhei.ttf", 18.0f, 0, io.Fonts->GetGlyphRangesChinese());
+
 #if IMGUI_LUA > 0
     imgui_lua_test();
 #endif // IMGUI_LUA

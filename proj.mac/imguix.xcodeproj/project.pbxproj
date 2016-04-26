@@ -377,6 +377,7 @@
 					"$(inherited)",
 					"/Applications/Cocos/frameworks/cocos2d-x-3.8.1/cocos/platform/mac",
 					"/Applications/Cocos/frameworks/cocos2d-x-3.8.1/external/glfw3/include/mac",
+					"\"$(SRCROOT)/../Classes/\"",
 				);
 				INFOPLIST_FILE = mac/Info.plist;
 				LIBRARY_SEARCH_PATHS = (
@@ -416,6 +417,7 @@
 					"$(inherited)",
 					"/Applications/Cocos/frameworks/cocos2d-x-3.8.1/cocos/platform/mac",
 					"/Applications/Cocos/frameworks/cocos2d-x-3.8.1/external/glfw3/include/mac",
+					"\"$(SRCROOT)/../Classes/\"",
 				);
 				INFOPLIST_FILE = mac/Info.plist;
 				LIBRARY_SEARCH_PATHS = (
