@@ -96,4 +96,4 @@ if imgui.imageButton("res/1.png") then print("image button click 1") end
 if imgui.imageButton("#CoinSpin01.png") then print("CoinSpin01 1") end
 ```
 
-[more sample in main.lua](https://github.com/c0i/imguix/blob/master/Resources/res/main.lua)
+[more example in main.lua](https://github.com/c0i/imguix/blob/master/Resources/res/main.lua)
