@@ -6,7 +6,7 @@
 #include "CCImGuiLayer.h"
 #include "CCIMGUI.h"
 
-    #ifdef IMGUI_LUA
+    #if IMGUI_LUA > 0
     #include "imgui/imgui_lua.hpp"
     #endif // IMGUI_LUA
 
@@ -32,12 +32,12 @@ static int imgui_lua_test()
               .addMemberFunction("addChild", static_cast<void(Node::*)(Node*)>(&Node::addChild))
               .addMemberFunction("scheduleOnce", static_cast<void(Node::*)(const std::function<void(float)>& callback, float delay, const std::string &key)>(&Node::scheduleOnce))
               .addMemberFunction("schedule", static_cast<void(Node::*)(const std::function<void(float)>&, float, const std::string &)>(&Node::schedule))
+              .addMemberFunction("setPosition", static_cast<void(Node::*)(float x, float y)>(&Node::setPosition))
               );
 
     cc["Sprite"]
     .setClass(kaguya::ClassMetatable<Sprite, Node>()
               .addStaticFunction("create", static_cast<Sprite*(*)(const std::string&)>(&Sprite::create))
-              .addMemberFunction("setPosition", static_cast<void(Sprite::*)(float x, float y)>(&Sprite::setPosition))
               );
 
     cc["Director"]
@@ -47,8 +47,8 @@ static int imgui_lua_test()
               );
 
     cc["Scene"]
-    .setClass(kaguya::ClassMetatable<Scene>()
-              .addMemberFunction("addChild", static_cast<void(Scene::*)(Node*)>(&Scene::addChild))
+    .setClass(kaguya::ClassMetatable<Scene, Node>()
+//              .addMemberFunction("addChild", static_cast<void(Scene::*)(Node*)>(&Scene::addChild))
               );
 
     state["cc"] = cc;
