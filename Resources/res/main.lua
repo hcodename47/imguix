@@ -1,4 +1,5 @@
 
+print ('======== Lua =======')
 print (imgui.version)
 print (imgui.ImGuiWindowFlags_NoTitleBar)
 
@@ -38,7 +39,7 @@ imgui.draw = function ()
         print ("click ok")
     end
 
-    if imgui.begin("Toolbar", isToolbarOpened, {imgui.ImGuiWindowFlags_MenuBar}) then
+    if imgui.begin("[lua] Toolbar", isToolbarOpened, {imgui.ImGuiWindowFlags_MenuBar}) then
         if imgui.beginMenuBar() == true then
             if imgui.beginMenu("File") == true then
                 imgui.menuItem("Open")
