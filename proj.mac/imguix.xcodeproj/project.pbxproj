@@ -26,7 +26,6 @@
 		65864E89AE5B86C9D1F66D1E /* res in Resources */ = {isa = PBXBuildFile; fileRef = 7FDD41ADB08C3C9247273E5B /* res */; };
 		8262943E1AAF051F00CB7CF7 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8262943D1AAF051F00CB7CF7 /* Security.framework */; };
 		9FE9812D1CAD4F850038012F /* CCIMGUI.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9FE981271CAD4F850038012F /* CCIMGUI.cpp */; };
-		9FE981441CAE1F9A0038012F /* CCIMGUIGLViewImpl.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9FE981401CAE1F9A0038012F /* CCIMGUIGLViewImpl.cpp */; };
 		9FE981451CAE1F9A0038012F /* CCImGuiLayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9FE981421CAE1F9A0038012F /* CCImGuiLayer.cpp */; };
 		9FFAD50E1CC3661B00986F50 /* imgui_lua.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9FFAD50C1CC3661B00986F50 /* imgui_lua.cpp */; };
 		9FFAD51E1CC38E1900986F50 /* libluajit.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9FFAD5191CC38E1900986F50 /* libluajit.a */; };
@@ -340,7 +339,6 @@
 			files = (
 				46880B8919C43A87006E1F66 /* AppDelegate.cpp in Sources */,
 				19BE2FC41BE46CF600CF4257 /* imgui.cpp in Sources */,
-				9FE981441CAE1F9A0038012F /* CCIMGUIGLViewImpl.cpp in Sources */,
 				196A09C01C07573E00E61A2C /* imgui_impl_glfw_mac.cpp in Sources */,
 				503AE10517EB98FF00D1A890 /* main.cpp in Sources */,
 				9FFAD50E1CC3661B00986F50 /* imgui_lua.cpp in Sources */,

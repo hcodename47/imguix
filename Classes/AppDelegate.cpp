@@ -10,6 +10,7 @@
     #include "imgui/imgui_lua.hpp"
     #endif // IMGUI_LUA
 
+#include "imgui_impl_glfw.h"
 #endif
 
 USING_NS_CC;
@@ -60,7 +61,12 @@ bool AppDelegate::applicationDidFinishLaunching() {
 
     if (!glview)
     {
-        director->setOpenGLView(IMGUIGLViewImpl::createWithRect("imguix", Rect(0, 0, width, height)));
+//        director->setOpenGLView(IMGUIGLViewImpl::createWithRect("imguix", Rect(0, 0, width, height)));
+        glview = GLViewImpl::createWithRect("imguix", Rect(0, 0, width, height));
+        director->setOpenGLView(glview);
+        
+        // imgui
+        ImGui_ImplGlfw_Init(((GLViewImpl*)glview)->getWindow(), false);
     }
     
     director->getOpenGLView()->setDesignResolutionSize(width, height, ResolutionPolicy::NO_BORDER);

@@ -28,6 +28,19 @@ bool ImGuiLayer::init()
         return inImGuiWidgets;
     };
     getEventDispatcher()->addEventListenerWithSceneGraphPriority(listener, this);
+    
+    {
+        auto keyLis = EventListenerKeyboard::create();
+        keyLis->onKeyReleased = [](EventKeyboard::KeyCode code, Event*) {
+            
+            if (code >= EventKeyboard::KeyCode::KEY_A && code <= EventKeyboard::KeyCode::KEY_Z) {
+                unsigned int c = int(code) - int(EventKeyboard::KeyCode::KEY_A) + 'a';
+                ImGui_ImplGlfw_CharCallback(((GLViewImpl*)Director::getInstance()->getOpenGLView())->getWindow(), c);
+            }
+
+        };
+        getEventDispatcher()->addEventListenerWithSceneGraphPriority(keyLis, this);
+    }
     return true;
 }
 
