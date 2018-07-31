@@ -38,7 +38,7 @@ imgui.draw = function ()
         print ("click ok")
     end
 
-    if imgui.begin("Toolbar", isToolbarOpened, {imgui.ImGuiWindowFlags_MenuBar}) then
+    imgui.begin("Toolbar", isToolbarOpened, {imgui.ImGuiWindowFlags_MenuBar})
         if imgui.beginMenuBar() == true then
             if imgui.beginMenu("File") == true then
                 imgui.menuItem("Open")
@@ -61,6 +61,5 @@ imgui.draw = function ()
         imgui.sameLine() if imgui.imageButton("#CoinSpin01.png") then print("CoinSpin01 2") end
         imgui.sameLine() if imgui.imageButton("#AddCoinButton.png", 30, 30) then print("AddCoinButton") end
 
-        imgui.endToLua()
-    end
+    imgui.endToLua()
 end
