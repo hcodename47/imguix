@@ -25,6 +25,7 @@
 		5087E78B17EB975400C73F5D /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5087E78A17EB975400C73F5D /* OpenGL.framework */; };
 		65864E89AE5B86C9D1F66D1E /* res in Resources */ = {isa = PBXBuildFile; fileRef = 7FDD41ADB08C3C9247273E5B /* res */; };
 		8262943E1AAF051F00CB7CF7 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8262943D1AAF051F00CB7CF7 /* Security.framework */; };
+		84CE4B8521B8C64C0022C5BA /* imgui_widgets.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 84CE4B8421B8C64C0022C5BA /* imgui_widgets.cpp */; };
 		9FE9812D1CAD4F850038012F /* CCIMGUI.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9FE981271CAD4F850038012F /* CCIMGUI.cpp */; };
 		9FE981441CAE1F9A0038012F /* CCIMGUIGLViewImpl.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9FE981401CAE1F9A0038012F /* CCIMGUIGLViewImpl.cpp */; };
 		9FE981451CAE1F9A0038012F /* CCImGuiLayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9FE981421CAE1F9A0038012F /* CCImGuiLayer.cpp */; };
@@ -43,9 +44,6 @@
 		19BE2FBD1BE46CF600CF4257 /* imgui_draw.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = imgui_draw.cpp; sourceTree = "<group>"; };
 		19BE2FBF1BE46CF600CF4257 /* imgui_impl_glfw.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = imgui_impl_glfw.h; sourceTree = "<group>"; };
 		19BE2FC01BE46CF600CF4257 /* imgui_internal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = imgui_internal.h; sourceTree = "<group>"; };
-		19BE2FC11BE46CF600CF4257 /* stb_rect_pack.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = stb_rect_pack.h; sourceTree = "<group>"; };
-		19BE2FC21BE46CF600CF4257 /* stb_textedit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = stb_textedit.h; sourceTree = "<group>"; };
-		19BE2FC31BE46CF600CF4257 /* stb_truetype.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = stb_truetype.h; sourceTree = "<group>"; };
 		1ACB3243164770DE00914215 /* libcurl.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libcurl.a; path = ../../cocos2dx/platform/third_party/ios/libraries/libcurl.a; sourceTree = "<group>"; };
 		1D30AB110D05D00D00671497 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		1DF5F4DF0D08C38300B7A737 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
@@ -67,6 +65,7 @@
 		5CC84510B1413B3FCD7DE99B /* libcocos2d Mac.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libcocos2d Mac.a"; path = "/Applications/Cocos/frameworks/cocos2d-x-3.8.1/prebuilt/mac/libcocos2d Mac.a"; sourceTree = "<absolute>"; };
 		7FDD41ADB08C3C9247273E5B /* res */ = {isa = PBXFileReference; lastKnownFileType = "?"; name = res; path = ../Resources/res; sourceTree = "<group>"; };
 		8262943D1AAF051F00CB7CF7 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		84CE4B8421B8C64C0022C5BA /* imgui_widgets.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = imgui_widgets.cpp; sourceTree = "<group>"; };
 		9FE981271CAD4F850038012F /* CCIMGUI.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CCIMGUI.cpp; sourceTree = "<group>"; };
 		9FE981281CAD4F850038012F /* CCIMGUI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCIMGUI.h; sourceTree = "<group>"; };
 		9FE981401CAE1F9A0038012F /* CCIMGUIGLViewImpl.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CCIMGUIGLViewImpl.cpp; sourceTree = "<group>"; };
@@ -131,9 +130,7 @@
 				196A09BF1C07573E00E61A2C /* imgui_impl_glfw_mac.cpp */,
 				19BE2FBF1BE46CF600CF4257 /* imgui_impl_glfw.h */,
 				19BE2FC01BE46CF600CF4257 /* imgui_internal.h */,
-				19BE2FC11BE46CF600CF4257 /* stb_rect_pack.h */,
-				19BE2FC21BE46CF600CF4257 /* stb_textedit.h */,
-				19BE2FC31BE46CF600CF4257 /* stb_truetype.h */,
+				84CE4B8421B8C64C0022C5BA /* imgui_widgets.cpp */,
 				9FFAD50C1CC3661B00986F50 /* imgui_lua.cpp */,
 				9FFAD50D1CC3661B00986F50 /* imgui_lua.hpp */,
 			);
@@ -345,6 +342,7 @@
 				503AE10517EB98FF00D1A890 /* main.cpp in Sources */,
 				9FFAD50E1CC3661B00986F50 /* imgui_lua.cpp in Sources */,
 				19BE2FC61BE46CF600CF4257 /* imgui_draw.cpp in Sources */,
+				84CE4B8521B8C64C0022C5BA /* imgui_widgets.cpp in Sources */,
 				9FE9812D1CAD4F850038012F /* CCIMGUI.cpp in Sources */,
 				19BE2FC51BE46CF600CF4257 /* imgui_demo.cpp in Sources */,
 				46880B8B19C43A87006E1F66 /* HelloWorldScene.cpp in Sources */,
