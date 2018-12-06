@@ -52,13 +52,13 @@
 
    // remove ui
    CCIMGUI::getInstance()->removeImGUI("demoid");
-   
+
    // create button with file name, auto pushID / popID with texture id
    CCIMGUI::getInstance()->imageButton("filename.png");
-   
+
    // create button with SpriteFrameName, auto pushID / popID with texture id
    CCIMGUI:: getInstance()->imageButton("#framename");
-   
+
    // chinese font
    // http://www.slackware.com/~alien/slackbuilds/wqy-zenhei-font-ttf/build/wqy-zenhei-0.4.23-1.tar.gz
    ImGuiIO &io = ImGui::GetIO();
@@ -72,10 +72,10 @@
 ```lua
 -- text
 imgui.text("Hello, World!")
-    
+
 -- text button
 imgui.button("text button")
-    
+
 -- new window
 if imgui.begin("Toolbar") then
 end
@@ -96,4 +96,4 @@ if imgui.imageButton("res/1.png") then print("image button click 1") end
 if imgui.imageButton("#CoinSpin01.png") then print("CoinSpin01 1") end
 ```
 
-[more example in main.lua](https://github.com/c0i/imguix/blob/master/Resources/res/main.lua)
+[more example in main.lua](Resources/res/main.lua)
