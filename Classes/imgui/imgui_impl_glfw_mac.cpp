@@ -4,7 +4,7 @@
 // See main.cpp for an example of using this.
 // https://github.com/ocornut/imgui
 
-#include <imgui.h>
+#include "imgui.h"
 #include "imgui_impl_glfw.h"
 
 // GLFW
@@ -99,12 +99,12 @@ void ImGui_ImplGlfw_RenderDrawLists(ImDrawData* draw_data)
     glPopAttrib();
 }
 
-static const char* ImGui_ImplGlfw_GetClipboardText()
+static const char* ImGui_ImplGlfw_GetClipboardText(void* user_data)
 {
     return glfwGetClipboardString(g_Window);
 }
 
-static void ImGui_ImplGlfw_SetClipboardText(const char* text)
+static void ImGui_ImplGlfw_SetClipboardText(void* user_data, const char* text)
 {
     glfwSetClipboardString(g_Window, text);
 }
@@ -226,7 +226,7 @@ bool    ImGui_ImplGlfw_Init(GLFWwindow* window, bool install_callbacks)
 void ImGui_ImplGlfw_Shutdown()
 {
     ImGui_ImplGlfw_InvalidateDeviceObjects();
-    ImGui::Shutdown();
+//    ImGui::Shutdown();
 }
 
 void ImGui_ImplGlfw_NewFrame()

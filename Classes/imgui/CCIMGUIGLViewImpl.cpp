@@ -310,6 +310,9 @@ IMGUIGLViewImpl::IMGUIGLViewImpl()
 
     glfwSetErrorCallback(GLFWEventHandler::onGLFWError);
     glfwInit();
+    
+    IMGUI_CHECKVERSION();
+    ImGui::CreateContext();
 }
 
 IMGUIGLViewImpl::~IMGUIGLViewImpl()
