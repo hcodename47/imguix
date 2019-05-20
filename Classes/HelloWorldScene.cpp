@@ -11,13 +11,13 @@ Scene* HelloWorld::createScene()
 {
     // 'scene' is an autorelease object
     auto scene = Scene::create();
-
+    
     // 'layer' is an autorelease object
     auto layer = HelloWorld::create();
-
+    
     // add layer as a child to scene
     scene->addChild(layer);
-
+    
     // return the scene
     return scene;
 }
@@ -31,7 +31,7 @@ bool HelloWorld::init()
     {
         return false;
     }
-
+    
     auto director = Director::getInstance();
     auto size = director->getWinSize();
     
@@ -44,7 +44,7 @@ bool HelloWorld::init()
         return true;
     };
     Director::getInstance()->getEventDispatcher()->addEventListenerWithSceneGraphPriority(listener, rootNode);
-
+    
     CCIMGUI::getInstance()->addImGUI([=](){
         // 1. Show a simple window
         // Tip: if we don't call ImGui::Begin()/ImGui::End() the widgets appears in a window automatically called "Debug"
@@ -57,17 +57,17 @@ bool HelloWorld::init()
             if (ImGui::Button("Another Window")) show_another_window ^= 1;
             ImGui::Text("Application average %.3f ms/frame (%.1f FPS)", 1000.0f / ImGui::GetIO().Framerate, ImGui::GetIO().Framerate);
         }
-
+        
         // 2. Show another simple window, this time using an explicit Begin/End pair
         if (show_another_window)
         {
             ImGui::SetNextWindowSize(ImVec2(200,100), ImGuiSetCond_FirstUseEver);
             ImGui::Begin("Another Window", &show_another_window);
-
+            
             ImGui::Text("Hello");
             ImGui::End();
         }
-
+        
         // 3. Show the ImGui test window. Most of the sample code is in ImGui::ShowTestWindow()
         if (show_test_window)
         {
@@ -75,6 +75,6 @@ bool HelloWorld::init()
             ImGui::ShowTestWindow();
         }
     }, "demoid");
-
+    
     return true;
 }

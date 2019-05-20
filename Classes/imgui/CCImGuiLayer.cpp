@@ -1,6 +1,6 @@
 #include "CCImGuiLayer.h"
 #include "imgui.h"
-#include "imgui_impl_glfw.h"
+#include "imgui_impl_cocos2dx.h"
 #include "CCIMGUI.h"
 
 USING_NS_CC;
@@ -23,7 +23,9 @@ bool ImGuiLayer::init()
     auto listener = EventListenerTouchOneByOne::create();
     listener->setSwallowTouches(true);
     listener->onTouchBegan = [](Touch* touch, Event*) -> bool {
-        return ImGui::GetIO().WantCaptureMouse;
+        bool inImGuiWidgets = ImGui::IsAnyWindowHovered();
+        
+        return inImGuiWidgets;
     };
     getEventDispatcher()->addEventListenerWithSceneGraphPriority(listener, this);
     return true;
@@ -39,19 +41,23 @@ void ImGuiLayer::visit(cocos2d::Renderer *renderer, const cocos2d::Mat4 &parentT
 
 void ImGuiLayer::onDraw()
 {
-    glUseProgram(0);
+    getGLProgram()->use();
+    
     if (CCIMGUI::getInstance()->getWindow()) {
-		ImGuiIO& io = ImGui::GetIO();
-		io.DeltaTime = Director::getInstance()->getDeltaTime();
-
+        ImGuiIO& io = ImGui::GetIO();
+        io.DeltaTime = Director::getInstance()->getDeltaTime();
+        
         // create frame
-        ImGui_ImplGlfw_NewFrame();
-
+        ImGui_ImplCocos2dx_NewFrame();
+        
         // draw all gui
-		CCIMGUI::getInstance()->updateImGUI();
-
+        CCIMGUI::getInstance()->updateImGUI();
+        
         // rendering
+        glUseProgram(0);
+        
         ImGui::Render();
+        
+        ImGui_ImplCocos2dx_RenderDrawData(ImGui::GetDrawData());
     }
-	glUseProgram(1);
 }
