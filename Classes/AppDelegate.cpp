@@ -1,41 +1,17 @@
 #include "AppDelegate.h"
 #include "HelloWorldScene.h"
 
-#if (CC_TARGET_PLATFORM == CC_PLATFORM_WIN32) || (CC_TARGET_PLATFORM == CC_PLATFORM_MAC)
-#include "CCIMGUIGLViewImpl.h"
-#include "CCImGuiLayer.h"
-#include "CCIMGUI.h"
-
-    #ifdef IMGUI_LUA
-    #include "imgui/imgui_lua.hpp"
-    #endif // IMGUI_LUA
-
-#endif
+#include "imgui/CCIMGUIGLViewImpl.h"
+#include "imgui/CCImGuiLayer.h"
+#include "imgui/CCIMGUI.h"
 
 USING_NS_CC;
-
-#if IMGUI_LUA > 0
-static int imgui_lua_test()
-{
-    static lua_State *L = luaL_newstate();
-    luaL_openlibs(L);
-    luaopen_imgui(L);
-
-    std::string fn = FileUtils::getInstance()->fullPathForFilename("res/main.lua");
-    if (luaL_dofile(L, fn.c_str()))
-    {
-        CCLOG("%s", lua_tostring(L, -1));
-    }
-
-    return 0;
-}
-#endif // IMGUI_LUA
-
+//
 AppDelegate::AppDelegate() {
 
 }
 
-AppDelegate::~AppDelegate()
+AppDelegate::~AppDelegate() 
 {
 }
 
@@ -51,50 +27,40 @@ void AppDelegate::initGLContextAttrs()
 }
 
 bool AppDelegate::applicationDidFinishLaunching() {
-    int width = 960;
-    int height = 640;
-    
     // initialize director
     auto director = Director::getInstance();
-    auto glview   = director->getOpenGLView();
-
-    if (!glview)
-    {
-        director->setOpenGLView(IMGUIGLViewImpl::createWithRect("imguix", Rect(0, 0, width, height)));
+    auto glview = director->getOpenGLView();
+    if(!glview) {
+        glview = IMGUIGLViewImpl::createWithRect("ImGuiX", Rect(0, 0, 960, 640));
+        director->setOpenGLView(glview);
     }
-    
-    director->getOpenGLView()->setDesignResolutionSize(width, height, ResolutionPolicy::NO_BORDER);
+
+    director->getOpenGLView()->setDesignResolutionSize(960, 640, ResolutionPolicy::SHOW_ALL);
 
     // turn on display FPS
     director->setDisplayStats(true);
 
     // set FPS. the default value is 1.0/60 if you don't call this
-    director->setAnimationInterval(1.0f / 30);
+    director->setAnimationInterval(1.0 / 60);
 
-    FileUtils::getInstance()->addSearchPath("res");
+    // add search paths (starting from inside Resources) here
+    //FileUtils::getInstance()->addSearchPath("res");
 
     // create a scene. it's an autorelease object
     auto scene = HelloWorld::createScene();
-    
+
     // run
     director->runWithScene(scene);
 
-#if (CC_TARGET_PLATFORM == CC_PLATFORM_WIN32) || (CC_TARGET_PLATFORM == CC_PLATFORM_MAC)
-    // ImGui is always on the top
-    Director::getInstance()->getScheduler()->schedule([](float)
+    // auto check when imGUI layer is not added yet.
+    director->getScheduler()->schedule([=](float dt)
     {
-       if (!Director::getInstance()->getRunningScene()->getChildByName("ImGUILayer"))
-       {
-           Director::getInstance()->getRunningScene()->addChild(ImGuiLayer::create(), INT_MAX, "ImGUILayer");
-       }
-    }, this, 0, false, "checkImGUI");
-#endif
-
-    SpriteFrameCache::getInstance()->addSpriteFramesWithFile("AllSprites.plist", "AllSprites.png");
-    
-#if IMGUI_LUA > 0
-    imgui_lua_test();
-#endif // IMGUI_LUA
+        auto runningScene = Director::getInstance()->getRunningScene();
+        if (runningScene && !runningScene->getChildByName("ImGUILayer"))
+        {
+            runningScene->addChild(ImGuiLayer::create(), INT_MAX, "ImGUILayer");
+        }
+    }, this, 0, false, "checkIMGUI");
 
     return true;
 }

@@ -1,6 +1,7 @@
 /****************************************************************************
 Copyright (c) 2010-2012 cocos2d-x.org
-Copyright (c) 2013-2014 Chukong Technologies Inc.
+Copyright (c) 2013-2016 Chukong Technologies Inc.
+Copyright (c) 2017-2018 Xiamen Yaji Software Co., Ltd.
 
 http://www.cocos2d-x.org
 
@@ -53,11 +54,13 @@ THE SOFTWARE.
 
 NS_CC_BEGIN
 
+
 class IMGUIGLViewImpl : public GLView
 {
 public:
     static IMGUIGLViewImpl* create(const std::string& viewName);
-    static IMGUIGLViewImpl* createWithRect(const std::string& viewName, Rect size, float frameZoomFactor = 1.0f);
+    static IMGUIGLViewImpl* create(const std::string& viewName, bool resizable);
+    static IMGUIGLViewImpl* createWithRect(const std::string& viewName, Rect size, float frameZoomFactor = 1.0f, bool resizable = false);
     static IMGUIGLViewImpl* createWithFullScreen(const std::string& viewName);
     static IMGUIGLViewImpl* createWithFullScreen(const std::string& viewName, const GLFWvidmode &videoMode, GLFWmonitor *monitor);
 
@@ -77,6 +80,14 @@ public:
     bool windowShouldClose() override;
     void pollEvents() override;
     GLFWwindow* getWindow() const { return _mainWindow; }
+
+    bool isFullscreen() const;
+    void setFullscreen();
+    void setFullscreen(int monitorIndex);
+    void setFullscreen(const GLFWvidmode &videoMode, GLFWmonitor *monitor);
+    void setWindowed(int width, int height);
+    int getMonitorCount() const;
+    Size getMonitorSize() const;
 
     /* override functions */
     virtual bool isOpenGLReady() override;
@@ -109,19 +120,8 @@ public:
     
 #if (CC_TARGET_PLATFORM == CC_PLATFORM_MAC)
     id getCocoaWindow() override { return glfwGetCocoaWindow(_mainWindow); }
+    id getNSGLContext() override { return glfwGetNSGLContext(_mainWindow); } // stevetranby: added
 #endif // #if (CC_TARGET_PLATFORM == CC_PLATFORM_MAC)
-
-protected:
-    IMGUIGLViewImpl();
-    virtual ~IMGUIGLViewImpl();
-
-    bool initWithRect(const std::string& viewName, Rect rect, float frameZoomFactor);
-    bool initWithFullScreen(const std::string& viewName);
-    bool initWithFullscreen(const std::string& viewname, const GLFWvidmode &videoMode, GLFWmonitor *monitor);
-
-    bool initGlew();
-
-    void updateFrameSize();
 
     // GLFW callbacks
     void onGLFWError(int errorID, const char* errorDesc);
@@ -134,6 +134,19 @@ protected:
     void onGLFWframebuffersize(GLFWwindow* window, int w, int h);
     void onGLFWWindowSizeFunCallback(GLFWwindow *window, int width, int height);
     void onGLFWWindowIconifyCallback(GLFWwindow* window, int iconified);
+    void onGLFWWindowFocusCallback(GLFWwindow* window, int focused);
+
+protected:
+    IMGUIGLViewImpl(bool initglfw = true);
+    virtual ~IMGUIGLViewImpl();
+
+    bool initWithRect(const std::string& viewName, Rect rect, float frameZoomFactor, bool resizable);
+    bool initWithFullScreen(const std::string& viewName);
+    bool initWithFullscreen(const std::string& viewname, const GLFWvidmode &videoMode, GLFWmonitor *monitor);
+
+    bool initGlew();
+
+    void updateFrameSize();
 
     bool _captured;
     bool _supportTouch;
@@ -146,10 +159,18 @@ protected:
     GLFWwindow* _mainWindow;
     GLFWmonitor* _monitor;
 
+    std::string _glfwError;
+
     float _mouseX;
     float _mouseY;
 
     friend class GLFWEventHandler;
+    
+public:
+    // View will trigger an event when window is resized, gains or loses focus
+    static const std::string EVENT_WINDOW_RESIZED;
+    static const std::string EVENT_WINDOW_FOCUSED;
+    static const std::string EVENT_WINDOW_UNFOCUSED;
 
 private:
     CC_DISALLOW_COPY_AND_ASSIGN(IMGUIGLViewImpl);
@@ -157,4 +178,4 @@ private:
 
 NS_CC_END   // end of namespace   cocos2d
 
-#endif  // end of __IMGUI_GLViewImpl_H__
+#endif  // end of __IMGUI_IMGUIGLViewImpl_H__
