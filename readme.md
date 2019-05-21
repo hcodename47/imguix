@@ -99,4 +99,5 @@ if imgui.imageButton("#CoinSpin01.png") then print("CoinSpin01 1") end
 [more example in main.lua](Resources/res/main.lua)
 
 ## Thanks
-https://github.com/Subtixx
+1. https://github.com/Subtixx
+2. https://github.com/Mjarkiew/cocos2dx-imgui
