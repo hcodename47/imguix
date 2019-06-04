@@ -1,19 +1,19 @@
-## cocos2d-x-3.17.1 with imgui 1.7
+## Cocos2d-x-3.17.1 with imgui 1.7
 
-1. [https://github.com/cocos2d/cocos2d-x](https://github.com/cocos2d/cocos2d-x)
-2. [https://github.com/ocornut/imgui](https://github.com/ocornut/imgui)
+1. Cocos2d-x is the engine: [https://github.com/cocos2d/cocos2d-x](https://github.com/cocos2d/cocos2d-x)
+2. UI is rendered with Dear ImGui[https://github.com/ocornut/imgui](https://github.com/ocornut/imgui)
 
 
 ![screen](imguix.png)
 
-## how to integrate imguix
+## How to integrate imguix
 
 - all you need are `Classes/imgui` folder
 
 - create GLView:
 
 
-  ```
+  ```c++
   // include headers
   #if (CC_TARGET_PLATFORM == CC_PLATFORM_WIN32) || (CC_TARGET_PLATFORM == CC_PLATFORM_MAC)
   #include "CCIMGUIGLViewImpl.h"
@@ -21,12 +21,12 @@
   #endif
   ```
 
-  ```
+  ```c++
   // create glview
   director->setOpenGLView(IMGUIGLViewImpl::createWithRect("imguix", Rect(0, 0, width,   height)));
   ```
 
-  ```
+  ```c++
   // add imgui layer on the top
   #if (CC_TARGET_PLATFORM == CC_PLATFORM_WIN32) || (CC_TARGET_PLATFORM == CC_PLATFORM_MAC)
       // ImGui is always on the top
@@ -40,17 +40,17 @@
   #endif
   ```
 
-## how to use
+## How to use
 
    ```c++
-   // add ui
+   // add ui callbacks
    CCIMGUI::getInstance()->addImGUI([=](){
        {
            ImGui::Text("Hello, world!");
        }
    }, "demoid");
 
-   // remove ui
+   // remove ui callbacks to stop rendering
    CCIMGUI::getInstance()->removeImGUI("demoid");
 
    // create button with file name, auto pushID / popID with texture id
@@ -65,9 +65,9 @@
    io.Fonts->AddFontFromFileTTF("res/wqy-zenhei.ttf", 18.0f, 0, io.Fonts->GetGlyphRangesChinese());
    ```
 
-## lua binding
+## Lua binding
 
-1. ImGui::ImageButton -> imgui.imageButton
+1. Naming convention is converted as followed: `ImGui::ImageButton` -> `imgui.imageButton`
 
 ```lua
 -- text
