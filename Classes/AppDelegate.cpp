@@ -44,7 +44,7 @@ bool AppDelegate::applicationDidFinishLaunching() {
     director->setAnimationInterval(1.0 / 60);
 
     // add search paths (starting from inside Resources) here
-    //FileUtils::getInstance()->addSearchPath("res");
+    FileUtils::getInstance()->addSearchPath("res");
 
     // create a scene. it's an autorelease object
     auto scene = HelloWorld::createScene();

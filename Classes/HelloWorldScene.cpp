@@ -1,11 +1,21 @@
 #include "HelloWorldScene.h"
 #include "imgui/CCIMGUI.h"
 
+#include "spine/spine.h"
 USING_NS_CC;
+using namespace spine;
 
 static bool show_test_window = true;
 static bool show_another_window = false;
 static ImVec4 clear_color = ImColor(114, 144, 154);
+
+HelloWorld::~HelloWorld()
+{
+    if (_skeletonData) spSkeletonData_dispose(_skeletonData);
+    if (_stateData) spAnimationStateData_dispose(_stateData);
+    if (_attachmentLoader) spAttachmentLoader_dispose(_attachmentLoader);
+    if (_atlas) spAtlas_dispose(_atlas);
+}
 
 Scene* HelloWorld::createScene()
 {
@@ -76,5 +86,48 @@ bool HelloWorld::init()
         }
     }, "demoid");
     
+    createSpineTest();
     return true;
+}
+
+void HelloWorld::createSpineTest()
+{
+    // Load the texture atlas.
+    _atlas = spAtlas_createFromFile("spine/spineboy.atlas", 0);
+    CCASSERT(_atlas, "Error reading atlas file.");
+    
+    // This attachment loader configures attachments with data needed for cocos2d-x rendering.
+    // Do not dispose the attachment loader until the skeleton data is disposed!
+    _attachmentLoader = (spAttachmentLoader*)Cocos2dAttachmentLoader_create(_atlas);
+    
+    // Load the skeleton data.
+    spSkeletonJson* json = spSkeletonJson_createWithLoader(_attachmentLoader);
+    json->scale = 0.6f; // Resizes skeleton data to 60% of the size it was in Spine.
+    _skeletonData = spSkeletonJson_readSkeletonDataFile(json, "spine/spineboy-ess.json");
+    CCASSERT(_skeletonData, json->error ? json->error : "Error reading skeleton data file.");
+    spSkeletonJson_dispose(json);
+    
+    // Setup mix times.
+    _stateData = spAnimationStateData_create(_skeletonData);
+    spAnimationStateData_setMixByName(_stateData, "walk", "jump", 0.2f);
+    spAnimationStateData_setMixByName(_stateData, "jump", "run", 0.2f);
+    
+    int xMin = _contentSize.width * 0.10f, xMax = _contentSize.width * 0.90f;
+    int yMin = 0, yMax = _contentSize.height * 0.7f;
+    for (int i = 0; i < 50; i++) {
+        // Each skeleton node shares the same atlas, skeleton data, and mix times.
+        SkeletonAnimation* skeletonNode = SkeletonAnimation::createWithData(_skeletonData, false);
+        skeletonNode->setAnimationStateData(_stateData);
+        
+        skeletonNode->setAnimation(0, "walk", true);
+        skeletonNode->addAnimation(0, "jump", false, 3);
+        skeletonNode->addAnimation(0, "run", true);
+        
+        skeletonNode->setPosition(Vec2(
+                                       RandomHelper::random_int(xMin, xMax),
+                                       RandomHelper::random_int(yMin, yMax)
+                                       ));
+        skeletonNode->setScale(0.8);
+        addChild(skeletonNode);
+    }
 }
