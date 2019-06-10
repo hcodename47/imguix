@@ -5,6 +5,41 @@
 
 USING_NS_CC;
 
+void ImGuiLayer::createAndKeepOnTop()
+{
+    // delay call, once.
+    auto director = Director::getInstance();
+    director->getScheduler()->schedule([=](float dt)
+    {
+        std::string layerName = "ImGUILayer";
+        auto order = INT_MAX;
+        auto layer = ImGuiLayer::create();
+        auto runningScene = Director::getInstance()->getRunningScene();
+        if (runningScene && !runningScene->getChildByName(layerName))
+        {
+           runningScene->addChild(layer, INT_MAX, layerName);
+        }
+        
+        auto e = Director::getInstance()->getEventDispatcher();
+        auto detached = false;
+        e->addCustomEventListener(Director::EVENT_BEFORE_SET_NEXT_SCENE, [&](EventCustom*){
+            layer = dynamic_cast<ImGuiLayer*>(Director::getInstance()->getRunningScene()->getChildByName(layerName));
+            if (layer) {
+                layer->retain();
+                layer->removeFromParent();
+                detached = true;
+            }
+        });
+        e->addCustomEventListener(Director::EVENT_AFTER_SET_NEXT_SCENE, [&](EventCustom*){
+            if (layer && detached) {
+                Director::getInstance()->getRunningScene()->addChild(layer, order, layerName);
+                layer->release();
+                detached = false;
+            }
+        });
+    }, director, 0, 0, 0, false, "checkIMGUI");
+}
+
 // on "init" you need to initialize your instance
 bool ImGuiLayer::init()
 {
@@ -16,7 +51,6 @@ bool ImGuiLayer::init()
     }
 
 	// init imgui
-	CCIMGUI::getInstance()->setWindow(((GLViewImpl*)Director::getInstance()->getOpenGLView())->getWindow());
     setGLProgram(GLProgramCache::getInstance()->getGLProgram(GLProgram::SHADER_NAME_POSITION_COLOR));
 
 	// events
@@ -42,22 +76,17 @@ void ImGuiLayer::visit(cocos2d::Renderer *renderer, const cocos2d::Mat4 &parentT
 void ImGuiLayer::onDraw()
 {
     getGLProgram()->use();
+
+    // create frame
+    ImGui_ImplCocos2dx_NewFrame();
     
-    if (CCIMGUI::getInstance()->getWindow()) {
-        ImGuiIO& io = ImGui::GetIO();
-        io.DeltaTime = Director::getInstance()->getDeltaTime();
-        
-        // create frame
-        ImGui_ImplCocos2dx_NewFrame();
-        
-        // draw all gui
-        CCIMGUI::getInstance()->updateImGUI();
-        
-        // rendering
-        glUseProgram(0);
-        
-        ImGui::Render();
-        
-        ImGui_ImplCocos2dx_RenderDrawData(ImGui::GetDrawData());
-    }
+    // draw all gui
+    CCIMGUI::getInstance()->updateImGUI();
+    
+    // rendering
+    glUseProgram(0);
+    
+    ImGui::Render();
+    
+    ImGui_ImplCocos2dx_RenderDrawData(ImGui::GetDrawData());
 }

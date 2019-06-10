@@ -3,6 +3,7 @@
  */
 
 #include "CCIMGUI.h"
+#include "imgui_impl_cocos2dx.h"
 
 USING_NS_CC;
 static CCIMGUI* _instance = NULL;
@@ -28,6 +29,7 @@ CCIMGUI* CCIMGUI::getInstance()
 
 void CCIMGUI::init()
 {
+    ImGui_ImplCocos2dx_Init(true);
 #if 1
 	_callPiplines["styleEditor"] = std::bind(&CCIMGUI::displaySetupStyle, this);
 	ImGuiStyle& style = ImGui::GetStyle();

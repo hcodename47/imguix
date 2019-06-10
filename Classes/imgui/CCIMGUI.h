@@ -1,9 +1,7 @@
 /**
  * https://github.com/namkazt/cocos2d-x-ImGui
  */
-
-#ifndef __CC_IMGUI_H__
-#define __CC_IMGUI_H__
+#pragma once
 
 #include "cocos2d.h"
 #include "imgui.h"
@@ -113,5 +111,3 @@ private:
 
     std::unordered_map<unsigned int, int> _usedTextureIdMap;
 };
-
-#endif // __IMGUILAYER_H__
