@@ -14,30 +14,14 @@
 
 
   ```c++
-  // include headers
-  #if (CC_TARGET_PLATFORM == CC_PLATFORM_WIN32) || (CC_TARGET_PLATFORM == CC_PLATFORM_MAC)
-  #include "CCIMGUIGLViewImpl.h"
-  #include "CCImGuiLayer.h"
-  #endif
+// include headers
+#include "CCImGuiLayer.h"
   ```
 
   ```c++
-  // create glview
-  director->setOpenGLView(IMGUIGLViewImpl::createWithRect("imguix", Rect(0, 0, width,   height)));
-  ```
-
-  ```c++
-  // add imgui layer on the top
-  #if (CC_TARGET_PLATFORM == CC_PLATFORM_WIN32) || (CC_TARGET_PLATFORM == CC_PLATFORM_MAC)
-      // ImGui is always on the top
-      Director::getInstance()->getScheduler()->schedule([](float)
-      {
-         if (!Director::getInstance()->getRunningScene()->getChildByName("ImGUILayer"))
-         {
-             Director::getInstance()->getRunningScene()->addChild(ImGuiLayer::create(), INT_MAX,   "ImGUILayer");
-         }
-      }, this, 0, false, "checkImGUI");
-  #endif
+// add ImGUI layer on top. Example:
+// https://github.com/c0i/imguix/blob/master/Classes/AppDelegate.cpp#L56
+ImGuiLayer::createAndKeepOnTop();
   ```
 
 ## How to use
@@ -101,3 +85,4 @@ if imgui.imageButton("#CoinSpin01.png") then print("CoinSpin01 1") end
 ## Thanks
 1. https://github.com/Subtixx
 2. https://github.com/Mjarkiew/cocos2dx-imgui
+3. https://github.com/Xrysnow/cocos2d-x-imgui
