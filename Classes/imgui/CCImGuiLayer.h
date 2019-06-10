@@ -1,5 +1,4 @@
-#ifndef __IMGUILAYER_H__
-#define __IMGUILAYER_H__
+#pragma once
 
 #include "cocos2d.h"
 
@@ -8,6 +7,8 @@ USING_NS_CC;
 class ImGuiLayer : public cocos2d::Layer
 {
 public:
+    static void createAndKeepOnTop();
+    
     // Here's a difference. Method 'init' in cocos2d-x returns bool, instead of returning 'id' in cocos2d-iphone
     virtual bool init() override;
 
@@ -21,5 +22,3 @@ public:
 private:
     CustomCommand _command;
 };
-
-#endif // __IMGUILAYER_H__

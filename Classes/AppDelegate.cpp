@@ -1,7 +1,7 @@
 #include "AppDelegate.h"
 #include "HelloWorldScene.h"
 
-#include "imgui/CCIMGUIGLViewImpl.h"
+#include "platform/CCGLView.h"
 #include "imgui/CCImGuiLayer.h"
 #include "imgui/CCIMGUI.h"
 
@@ -31,7 +31,7 @@ bool AppDelegate::applicationDidFinishLaunching() {
     auto director = Director::getInstance();
     auto glview = director->getOpenGLView();
     if(!glview) {
-        glview = IMGUIGLViewImpl::createWithRect("ImGuiX", Rect(0, 0, 960, 640));
+        glview = GLViewImpl::createWithRect("ImGuiX", Rect(0, 0, 960, 640));
         director->setOpenGLView(glview);
     }
 
@@ -53,14 +53,7 @@ bool AppDelegate::applicationDidFinishLaunching() {
     director->runWithScene(scene);
 
     // auto check when imGUI layer is not added yet.
-    director->getScheduler()->schedule([=](float dt)
-    {
-        auto runningScene = Director::getInstance()->getRunningScene();
-        if (runningScene && !runningScene->getChildByName("ImGUILayer"))
-        {
-            runningScene->addChild(ImGuiLayer::create(), INT_MAX, "ImGUILayer");
-        }
-    }, this, 0, false, "checkIMGUI");
+    ImGuiLayer::createAndKeepOnTop();
 
     return true;
 }

@@ -40,7 +40,6 @@
 		8262943E1AAF051F00CB7CF7 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8262943D1AAF051F00CB7CF7 /* Security.framework */; };
 		84D9A0DA229259F400DA7CAB /* imgui_widgets.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 84D9A0CB229259F400DA7CAB /* imgui_widgets.cpp */; };
 		84D9A0DB229259F400DA7CAB /* imgui_impl_cocos2dx.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 84D9A0CC229259F400DA7CAB /* imgui_impl_cocos2dx.cpp */; };
-		84D9A0DC229259F400DA7CAB /* CCIMGUIGLViewImpl.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 84D9A0CE229259F400DA7CAB /* CCIMGUIGLViewImpl.cpp */; };
 		84D9A0DD229259F400DA7CAB /* imgui.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 84D9A0D1229259F400DA7CAB /* imgui.cpp */; };
 		84D9A0DE229259F400DA7CAB /* CCIMGUI.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 84D9A0D5229259F400DA7CAB /* CCIMGUI.cpp */; };
 		84D9A0DF229259F400DA7CAB /* CCImGuiLayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 84D9A0D6229259F400DA7CAB /* CCImGuiLayer.cpp */; };
@@ -130,9 +129,7 @@
 		84D9A0CB229259F400DA7CAB /* imgui_widgets.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = imgui_widgets.cpp; sourceTree = "<group>"; };
 		84D9A0CC229259F400DA7CAB /* imgui_impl_cocos2dx.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = imgui_impl_cocos2dx.cpp; sourceTree = "<group>"; };
 		84D9A0CD229259F400DA7CAB /* imstb_truetype.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = imstb_truetype.h; sourceTree = "<group>"; };
-		84D9A0CE229259F400DA7CAB /* CCIMGUIGLViewImpl.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CCIMGUIGLViewImpl.cpp; sourceTree = "<group>"; };
 		84D9A0CF229259F400DA7CAB /* CCIMGUI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCIMGUI.h; sourceTree = "<group>"; };
-		84D9A0D0229259F400DA7CAB /* CCIMGUIGLViewImpl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCIMGUIGLViewImpl.h; sourceTree = "<group>"; };
 		84D9A0D1229259F400DA7CAB /* imgui.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = imgui.cpp; sourceTree = "<group>"; };
 		84D9A0D2229259F400DA7CAB /* imgui_internal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = imgui_internal.h; sourceTree = "<group>"; };
 		84D9A0D3229259F400DA7CAB /* CCImGuiLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCImGuiLayer.h; sourceTree = "<group>"; };
@@ -304,25 +301,23 @@
 		84D9A0C6229259F400DA7CAB /* imgui */ = {
 			isa = PBXGroup;
 			children = (
-				84D9A0C7229259F400DA7CAB /* imgui.h */,
-				84D9A0C8229259F400DA7CAB /* imstb_textedit.h */,
-				84D9A0C9229259F400DA7CAB /* imconfig.h */,
-				84D9A0CA229259F400DA7CAB /* imgui_impl_cocos2dx.h */,
-				84D9A0CB229259F400DA7CAB /* imgui_widgets.cpp */,
-				84D9A0CC229259F400DA7CAB /* imgui_impl_cocos2dx.cpp */,
-				84D9A0CD229259F400DA7CAB /* imstb_truetype.h */,
-				84D9A0CE229259F400DA7CAB /* CCIMGUIGLViewImpl.cpp */,
-				84D9A0CF229259F400DA7CAB /* CCIMGUI.h */,
-				84D9A0D0229259F400DA7CAB /* CCIMGUIGLViewImpl.h */,
-				84D9A0D1229259F400DA7CAB /* imgui.cpp */,
-				84D9A0D2229259F400DA7CAB /* imgui_internal.h */,
-				84D9A0D3229259F400DA7CAB /* CCImGuiLayer.h */,
-				84D9A0D4229259F400DA7CAB /* imstb_rectpack.h */,
 				84D9A0D5229259F400DA7CAB /* CCIMGUI.cpp */,
+				84D9A0CF229259F400DA7CAB /* CCIMGUI.h */,
 				84D9A0D6229259F400DA7CAB /* CCImGuiLayer.cpp */,
-				84D9A0D7229259F400DA7CAB /* LICENSE.txt */,
+				84D9A0D3229259F400DA7CAB /* CCImGuiLayer.h */,
+				84D9A0C9229259F400DA7CAB /* imconfig.h */,
 				84D9A0D8229259F400DA7CAB /* imgui_demo.cpp */,
 				84D9A0D9229259F400DA7CAB /* imgui_draw.cpp */,
+				84D9A0CC229259F400DA7CAB /* imgui_impl_cocos2dx.cpp */,
+				84D9A0CA229259F400DA7CAB /* imgui_impl_cocos2dx.h */,
+				84D9A0D2229259F400DA7CAB /* imgui_internal.h */,
+				84D9A0CB229259F400DA7CAB /* imgui_widgets.cpp */,
+				84D9A0D1229259F400DA7CAB /* imgui.cpp */,
+				84D9A0C7229259F400DA7CAB /* imgui.h */,
+				84D9A0D4229259F400DA7CAB /* imstb_rectpack.h */,
+				84D9A0C8229259F400DA7CAB /* imstb_textedit.h */,
+				84D9A0CD229259F400DA7CAB /* imstb_truetype.h */,
+				84D9A0D7229259F400DA7CAB /* LICENSE.txt */,
 			);
 			path = imgui;
 			sourceTree = "<group>";
@@ -475,7 +470,6 @@
 				84D9A0DE229259F400DA7CAB /* CCIMGUI.cpp in Sources */,
 				84D9A0DD229259F400DA7CAB /* imgui.cpp in Sources */,
 				84D9A0E1229259F400DA7CAB /* imgui_demo.cpp in Sources */,
-				84D9A0DC229259F400DA7CAB /* CCIMGUIGLViewImpl.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
