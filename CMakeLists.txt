@@ -50,10 +50,28 @@ endif()
 list(APPEND GAME_SOURCE
      Classes/AppDelegate.cpp
      Classes/HelloWorldScene.cpp
+     Classes/imgui/CCIMGUI.cpp
+     Classes/imgui/CCImGuiLayer.cpp
+     Classes/imgui/imgui.cpp
+     Classes/imgui/imgui_demo.cpp
+     Classes/imgui/imgui_draw.cpp
+     Classes/imgui/imgui_impl_cocos2dx.cpp
+     #Classes/imgui/imgui_lua.cpp
+     Classes/imgui/imgui_widgets.cpp
      )
 list(APPEND GAME_HEADER
      Classes/AppDelegate.h
      Classes/HelloWorldScene.h
+     Classes/imgui/imgui.h
+     Classes/imgui/CCIMGUI.h
+     Classes/imgui/CCImGuiLayer.h
+     Classes/imgui/imconfig.h
+     Classes/imgui/imgui_impl_cocos2dx.h
+     Classes/imgui/imgui_internal.h
+     Classes/imgui/imstb_rectpack.h
+     Classes/imgui/imstb_textedit.h
+     Classes/imgui/imstb_truetype.h
+     #Classes/imgui/imgui_lua.hpp
      )
 
 if(ANDROID)
