@@ -899,7 +899,8 @@ void ImGui_ImplCocos2dx_NewFrame()
         io.DisplayFramebufferScale = ImVec2((float)buffer_w / w, (float)buffer_h / h);
     
     // Setup time step
-    io.DeltaTime = cocos2d::Director::getInstance()->getDeltaTime();
+    const auto deltaTime = cocos2d::Director::getInstance()->getDeltaTime();
+    io.DeltaTime = deltaTime > 0 ? deltaTime : (float)(1.0f / 60.0f);
     
     ImGui_ImplCocos2dx_UpdateMousePosAndButtons();
     ImGui_ImplCocos2dx_UpdateMouseCursor();
