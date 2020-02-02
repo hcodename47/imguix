@@ -21,20 +21,20 @@ void ImGuiLayer::createAndKeepOnTop()
         }
         
         auto e = Director::getInstance()->getEventDispatcher();
-        auto detached = false;
-        e->addCustomEventListener(Director::EVENT_BEFORE_SET_NEXT_SCENE, [&](EventCustom*){
+        layer->detached = false;
+        e->addCustomEventListener(Director::EVENT_BEFORE_SET_NEXT_SCENE, [&, layerName](EventCustom*){
             layer = dynamic_cast<ImGuiLayer*>(Director::getInstance()->getRunningScene()->getChildByName(layerName));
             if (layer) {
                 layer->retain();
                 layer->removeFromParent();
-                detached = true;
+                layer->detached = true;
             }
         });
-        e->addCustomEventListener(Director::EVENT_AFTER_SET_NEXT_SCENE, [&](EventCustom*){
-            if (layer && detached) {
+        e->addCustomEventListener(Director::EVENT_AFTER_SET_NEXT_SCENE, [&, layer, layerName](EventCustom*){
+            if (layer && layer->detached) {
                 Director::getInstance()->getRunningScene()->addChild(layer, order, layerName);
                 layer->release();
-                detached = false;
+                layer->detached = false;
             }
         });
     }, director, 0, 0, 0, false, "checkIMGUI");
