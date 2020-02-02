@@ -7,6 +7,8 @@ USING_NS_CC;
 class ImGuiLayer : public cocos2d::Layer
 {
 public:
+    bool detached = false;
+
     static void createAndKeepOnTop();
     
     // Here's a difference. Method 'init' in cocos2d-x returns bool, instead of returning 'id' in cocos2d-iphone
