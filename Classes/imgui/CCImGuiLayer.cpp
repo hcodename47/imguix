@@ -49,9 +49,11 @@ bool ImGuiLayer::init()
     {
         return false;
     }
-
-	// init imgui
+	
+#if COCOS2D_VERSION < 0x00040000
+    // init imgui
     setGLProgram(GLProgramCache::getInstance()->getGLProgram(GLProgram::SHADER_NAME_POSITION_COLOR));
+#endif
 
 	// events
     auto listener = EventListenerTouchOneByOne::create();
@@ -75,7 +77,9 @@ void ImGuiLayer::visit(cocos2d::Renderer *renderer, const cocos2d::Mat4 &parentT
 
 void ImGuiLayer::onDraw()
 {
+#if COCOS2D_VERSION < 0x00040000
     getGLProgram()->use();
+#endif
 
     // create frame
     ImGui_ImplCocos2dx_NewFrame();
@@ -83,8 +87,10 @@ void ImGuiLayer::onDraw()
     // draw all gui
     CCIMGUI::getInstance()->updateImGUI();
     
+#if COCOS2D_VERSION < 0x00040000
     // rendering
     glUseProgram(0);
+#endif
     
     ImGui::Render();
     
