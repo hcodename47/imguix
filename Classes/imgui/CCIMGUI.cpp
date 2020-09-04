@@ -186,7 +186,11 @@ void CCIMGUI::image(const std::string& fn, int w, int h)
     std::tie(texture, size, uv0, uv1) = getTextureInfo(fn, w, h);
     if (texture) {
         bool needToPopID = false;
+#if !defined(EGNX_VERSION)
         GLuint texId = texture->getName();
+#else
+        GLuint texId = texture->getBackendTexture()->getGPUHandler();
+#endif
         if (_usedTextureIdMap.find(texId) == _usedTextureIdMap.end()) {
             _usedTextureIdMap[texId] = 0;
         } else {
@@ -213,7 +217,11 @@ bool CCIMGUI::imageButton(const std::string& fn, int w, int h)
     std::tie(texture, size, uv0, uv1) = getTextureInfo(fn, w, h);
     if (texture) {
         bool needToPopID = false;
+#if !defined(EGNX_VERSION)
         GLuint texId = texture->getName();
+#else
+        GLuint texId = texture->getBackendTexture()->getGPUHandler();
+#endif
         if (_usedTextureIdMap.find(texId) == _usedTextureIdMap.end()) {
             _usedTextureIdMap[texId] = 0;
         } else {
@@ -222,7 +230,7 @@ bool CCIMGUI::imageButton(const std::string& fn, int w, int h)
             needToPopID = true;
         }
         
-        ret = ImGui::ImageButton((ImTextureID)texture->getName(), size, uv0, uv1);
+        ret = ImGui::ImageButton((ImTextureID)texId, size, uv0, uv1);
 
         if (needToPopID) {
             ImGui::PopID();
