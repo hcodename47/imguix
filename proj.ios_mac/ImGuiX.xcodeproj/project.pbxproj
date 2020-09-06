@@ -38,6 +38,12 @@
 		5087E78B17EB975400C73F5D /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5087E78A17EB975400C73F5D /* OpenGL.framework */; };
 		52B47A471A53D09C004E4C60 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 52B47A461A53D09B004E4C60 /* Security.framework */; };
 		8262943E1AAF051F00CB7CF7 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8262943D1AAF051F00CB7CF7 /* Security.framework */; };
+		84CE9B872504A6F2001E7BB1 /* SVGSpritePath.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 84CE9B812504A6F2001E7BB1 /* SVGSpritePath.cpp */; };
+		84CE9B882504A6F2001E7BB1 /* SVGSpritePath.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 84CE9B812504A6F2001E7BB1 /* SVGSpritePath.cpp */; };
+		84CE9B892504A6F2001E7BB1 /* SVGSprite.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 84CE9B842504A6F2001E7BB1 /* SVGSprite.cpp */; };
+		84CE9B8A2504A6F2001E7BB1 /* SVGSprite.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 84CE9B842504A6F2001E7BB1 /* SVGSprite.cpp */; };
+		84CE9B8C2504A878001E7BB1 /* nanosvg.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 84CE9B8B2504A878001E7BB1 /* nanosvg.cpp */; };
+		84CE9B8D2504A878001E7BB1 /* nanosvg.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 84CE9B8B2504A878001E7BB1 /* nanosvg.cpp */; };
 		84D9A0DA229259F400DA7CAB /* imgui_widgets.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 84D9A0CB229259F400DA7CAB /* imgui_widgets.cpp */; };
 		84D9A0DB229259F400DA7CAB /* imgui_impl_cocos2dx.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 84D9A0CC229259F400DA7CAB /* imgui_impl_cocos2dx.cpp */; };
 		84D9A0DD229259F400DA7CAB /* imgui.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 84D9A0D1229259F400DA7CAB /* imgui.cpp */; };
@@ -122,6 +128,13 @@
 		5087E78A17EB975400C73F5D /* OpenGL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGL.framework; path = System/Library/Frameworks/OpenGL.framework; sourceTree = SDKROOT; };
 		52B47A461A53D09B004E4C60 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/System/Library/Frameworks/Security.framework; sourceTree = DEVELOPER_DIR; };
 		8262943D1AAF051F00CB7CF7 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		84CE9B812504A6F2001E7BB1 /* SVGSpritePath.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SVGSpritePath.cpp; sourceTree = "<group>"; };
+		84CE9B822504A6F2001E7BB1 /* SVGSprite.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SVGSprite.h; sourceTree = "<group>"; };
+		84CE9B832504A6F2001E7BB1 /* SVGSpritePath.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SVGSpritePath.h; sourceTree = "<group>"; };
+		84CE9B842504A6F2001E7BB1 /* SVGSprite.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SVGSprite.cpp; sourceTree = "<group>"; };
+		84CE9B852504A6F2001E7BB1 /* nanosvg.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = nanosvg.h; sourceTree = "<group>"; };
+		84CE9B862504A6F2001E7BB1 /* nanosvgrast.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = nanosvgrast.h; sourceTree = "<group>"; };
+		84CE9B8B2504A878001E7BB1 /* nanosvg.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = nanosvg.cpp; sourceTree = "<group>"; };
 		84D9A0C7229259F400DA7CAB /* imgui.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = imgui.h; sourceTree = "<group>"; };
 		84D9A0C8229259F400DA7CAB /* imstb_textedit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = imstb_textedit.h; sourceTree = "<group>"; };
 		84D9A0C9229259F400DA7CAB /* imconfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = imconfig.h; sourceTree = "<group>"; };
@@ -273,6 +286,7 @@
 				46880B8619C43A87006E1F66 /* HelloWorldScene.cpp */,
 				46880B8719C43A87006E1F66 /* HelloWorldScene.h */,
 				84D9A0C6229259F400DA7CAB /* imgui */,
+				84CE9B802504A6F2001E7BB1 /* svg */,
 			);
 			name = Classes;
 			path = ../Classes;
@@ -296,6 +310,20 @@
 				503AE10417EB98FF00D1A890 /* Prefix.pch */,
 			);
 			name = mac;
+			sourceTree = "<group>";
+		};
+		84CE9B802504A6F2001E7BB1 /* svg */ = {
+			isa = PBXGroup;
+			children = (
+				84CE9B8B2504A878001E7BB1 /* nanosvg.cpp */,
+				84CE9B852504A6F2001E7BB1 /* nanosvg.h */,
+				84CE9B862504A6F2001E7BB1 /* nanosvgrast.h */,
+				84CE9B842504A6F2001E7BB1 /* SVGSprite.cpp */,
+				84CE9B822504A6F2001E7BB1 /* SVGSprite.h */,
+				84CE9B812504A6F2001E7BB1 /* SVGSpritePath.cpp */,
+				84CE9B832504A6F2001E7BB1 /* SVGSpritePath.h */,
+			);
+			path = svg;
 			sourceTree = "<group>";
 		};
 		84D9A0C6229259F400DA7CAB /* imgui */ = {
@@ -451,6 +479,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				84CE9B872504A6F2001E7BB1 /* SVGSpritePath.cpp in Sources */,
+				84CE9B8C2504A878001E7BB1 /* nanosvg.cpp in Sources */,
+				84CE9B892504A6F2001E7BB1 /* SVGSprite.cpp in Sources */,
 				46880B8819C43A87006E1F66 /* AppDelegate.cpp in Sources */,
 				46880B8A19C43A87006E1F66 /* HelloWorldScene.cpp in Sources */,
 			);
@@ -465,11 +496,14 @@
 				503AE10517EB98FF00D1A890 /* main.cpp in Sources */,
 				46880B8B19C43A87006E1F66 /* HelloWorldScene.cpp in Sources */,
 				84D9A0DB229259F400DA7CAB /* imgui_impl_cocos2dx.cpp in Sources */,
+				84CE9B8D2504A878001E7BB1 /* nanosvg.cpp in Sources */,
+				84CE9B8A2504A6F2001E7BB1 /* SVGSprite.cpp in Sources */,
 				84D9A0DA229259F400DA7CAB /* imgui_widgets.cpp in Sources */,
 				84D9A0E2229259F400DA7CAB /* imgui_draw.cpp in Sources */,
 				84D9A0DE229259F400DA7CAB /* CCIMGUI.cpp in Sources */,
 				84D9A0DD229259F400DA7CAB /* imgui.cpp in Sources */,
 				84D9A0E1229259F400DA7CAB /* imgui_demo.cpp in Sources */,
+				84CE9B882504A6F2001E7BB1 /* SVGSpritePath.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

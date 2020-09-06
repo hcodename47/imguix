@@ -22,6 +22,8 @@ public:
     CREATE_FUNC(HelloWorld);
     
     void createSpineTest();
+    
+    void testSVG();
 protected:
     spAtlas* _atlas = nullptr;
     spAttachmentLoader* _attachmentLoader = nullptr;
