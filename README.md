@@ -90,3 +90,5 @@ if imgui.imageButton("#CoinSpin01.png") then print("CoinSpin01 1") end
 2. https://github.com/Mjarkiew/cocos2dx-imgui
 3. https://github.com/Xrysnow/cocos2d-x-imgui
 4. https://github.com/c4games/engine-x
+5. https://github.com/namkazt/CocosSVGSprite
+

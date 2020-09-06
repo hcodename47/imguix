@@ -1,6 +1,8 @@
 #include "HelloWorldScene.h"
 #include "imgui/CCIMGUI.h"
 
+#include "svg/SVGSprite.h"
+
 #include "spine/spine.h"
 USING_NS_CC;
 using namespace spine;
@@ -87,6 +89,9 @@ bool HelloWorld::init()
     }, "demoid");
     
     createSpineTest();
+    
+    testSVG();
+
     return true;
 }
 
@@ -130,4 +135,21 @@ void HelloWorld::createSpineTest()
         skeletonNode->setScale(0.8);
         addChild(skeletonNode);
     }
+}
+
+void HelloWorld::testSVG()
+{
+    auto svgSprite = SVGSprite::create("res/tiger.svg");
+    svgSprite->setPosition(getContentSize() / 2);
+    addChild(svgSprite);
+    
+
+    auto duration = 5.0f;
+    auto moveSeq = Sequence::createWithTwoActions(MoveBy::create(duration, Vec2(200,200)),
+                                                MoveBy::create(duration, Vec2(-200,-200)));
+    svgSprite->runAction(RepeatForever::create(moveSeq));
+    
+    auto scaleSeq = Sequence::createWithTwoActions(ScaleTo::create(duration, 3),
+                                                   ScaleTo::create(duration, 0.5));
+    svgSprite->runAction(RepeatForever::create(scaleSeq));
 }
