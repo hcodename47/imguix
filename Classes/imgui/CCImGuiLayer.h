@@ -22,5 +22,9 @@ public:
     CREATE_FUNC(ImGuiLayer);
 
 private:
+#if COCOS2D_VERSION < 0x00040000
     CustomCommand _command;
+#else
+    CallbackCommand _command;
+#endif
 };
