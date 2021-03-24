@@ -7,3 +7,5 @@ proj.win32/imguix.sdf
 proj.win32/imguix.v12.suo
 bin/
 xcuserdata
+Debug.win32
+proj.win32/.vs/
