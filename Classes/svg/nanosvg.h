@@ -29,6 +29,8 @@
 #ifndef NANOSVG_H
 #define NANOSVG_H
 
+#include <cstdio>
+
 #ifdef __cplusplus
 extern "C" {
 #endif

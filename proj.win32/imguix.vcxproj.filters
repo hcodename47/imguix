@@ -13,6 +13,9 @@
     <Filter Include="src\imgui">
       <UniqueIdentifier>{c891610f-e8ea-46a9-b6a5-779fa8cfd61c}</UniqueIdentifier>
     </Filter>
+    <Filter Include="src\svg">
+      <UniqueIdentifier>{377300e1-05d8-4b75-b252-e73f7075f27f}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -25,9 +28,6 @@
       <Filter>src</Filter>
     </ClCompile>
     <ClCompile Include="..\Classes\imgui\CCIMGUI.cpp">
-      <Filter>src\imgui</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Classes\imgui\CCIMGUIGLViewImpl.cpp">
       <Filter>src\imgui</Filter>
     </ClCompile>
     <ClCompile Include="..\Classes\imgui\CCImGuiLayer.cpp">
@@ -48,6 +48,15 @@
     <ClCompile Include="..\Classes\imgui\imgui_widgets.cpp">
       <Filter>src\imgui</Filter>
     </ClCompile>
+    <ClCompile Include="..\Classes\svg\nanosvg.cpp">
+      <Filter>src\svg</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\svg\SVGSprite.cpp">
+      <Filter>src\svg</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\svg\SVGSpritePath.cpp">
+      <Filter>src\svg</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="main.h">
@@ -60,9 +69,6 @@
       <Filter>src</Filter>
     </ClInclude>
     <ClInclude Include="..\Classes\imgui\CCIMGUI.h">
-      <Filter>src\imgui</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Classes\imgui\CCIMGUIGLViewImpl.h">
       <Filter>src\imgui</Filter>
     </ClInclude>
     <ClInclude Include="..\Classes\imgui\CCImGuiLayer.h">
@@ -89,10 +95,27 @@
     <ClInclude Include="..\Classes\imgui\imstb_truetype.h">
       <Filter>src\imgui</Filter>
     </ClInclude>
+    <ClInclude Include="..\Classes\svg\nanosvg.h">
+      <Filter>src\svg</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\svg\nanosvgrast.h">
+      <Filter>src\svg</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\svg\SVGSprite.h">
+      <Filter>src\svg</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\svg\SVGSpritePath.h">
+      <Filter>src\svg</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="game.rc">
       <Filter>resource</Filter>
     </ResourceCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\Classes\svg\README.md">
+      <Filter>src\svg</Filter>
+    </None>
   </ItemGroup>
 </Project>

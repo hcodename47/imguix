@@ -14,7 +14,7 @@
     <ProjectGuid>{76A39BB2-9B84-4C65-98A5-654D86B86F2A}</ProjectGuid>
     <RootNamespace>test_win32</RootNamespace>
     <Keyword>Win32Proj</Keyword>
-    <WindowsTargetPlatformVersion>8.1</WindowsTargetPlatformVersion>
+    <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
@@ -27,6 +27,7 @@
     <PlatformToolset Condition="'$(VisualStudioVersion)' == '14.0' and exists('$(MSBuildProgramFiles32)\Microsoft SDKs\Windows\v7.1A')">v140_xp</PlatformToolset>
     <PlatformToolset Condition="'$(VisualStudioVersion)' == '15.0'">v141</PlatformToolset>
     <PlatformToolset Condition="'$(VisualStudioVersion)' == '15.0' and exists('$(MSBuildProgramFiles32)\Microsoft SDKs\Windows\v7.1A')">v141_xp</PlatformToolset>
+    <PlatformToolset>v142</PlatformToolset>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
@@ -37,6 +38,7 @@
     <PlatformToolset Condition="'$(VisualStudioVersion)' == '14.0' and exists('$(MSBuildProgramFiles32)\Microsoft SDKs\Windows\v7.1A')">v140_xp</PlatformToolset>
     <PlatformToolset Condition="'$(VisualStudioVersion)' == '15.0'">v141</PlatformToolset>
     <PlatformToolset Condition="'$(VisualStudioVersion)' == '15.0' and exists('$(MSBuildProgramFiles32)\Microsoft SDKs\Windows\v7.1A')">v140_xp</PlatformToolset>
+    <PlatformToolset>v142</PlatformToolset>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
   <ImportGroup Label="ExtensionSettings">
@@ -152,20 +154,21 @@ xcopy "$(ProjectDir)..\Resources" "$(OutDir)\Resources\" /D /E /I /F /Y
     <ClCompile Include="..\Classes\AppDelegate.cpp" />
     <ClCompile Include="..\Classes\HelloWorldScene.cpp" />
     <ClCompile Include="..\Classes\imgui\CCIMGUI.cpp" />
-    <ClCompile Include="..\Classes\imgui\CCIMGUIGLViewImpl.cpp" />
     <ClCompile Include="..\Classes\imgui\CCImGuiLayer.cpp" />
     <ClCompile Include="..\Classes\imgui\imgui.cpp" />
     <ClCompile Include="..\Classes\imgui\imgui_demo.cpp" />
     <ClCompile Include="..\Classes\imgui\imgui_draw.cpp" />
     <ClCompile Include="..\Classes\imgui\imgui_impl_cocos2dx.cpp" />
     <ClCompile Include="..\Classes\imgui\imgui_widgets.cpp" />
+    <ClCompile Include="..\Classes\svg\nanosvg.cpp" />
+    <ClCompile Include="..\Classes\svg\SVGSprite.cpp" />
+    <ClCompile Include="..\Classes\svg\SVGSpritePath.cpp" />
     <ClCompile Include="main.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\Classes\AppDelegate.h" />
     <ClInclude Include="..\Classes\HelloWorldScene.h" />
     <ClInclude Include="..\Classes\imgui\CCIMGUI.h" />
-    <ClInclude Include="..\Classes\imgui\CCIMGUIGLViewImpl.h" />
     <ClInclude Include="..\Classes\imgui\CCImGuiLayer.h" />
     <ClInclude Include="..\Classes\imgui\imconfig.h" />
     <ClInclude Include="..\Classes\imgui\imgui.h" />
@@ -174,6 +177,10 @@ xcopy "$(ProjectDir)..\Resources" "$(OutDir)\Resources\" /D /E /I /F /Y
     <ClInclude Include="..\Classes\imgui\imstb_rectpack.h" />
     <ClInclude Include="..\Classes\imgui\imstb_textedit.h" />
     <ClInclude Include="..\Classes\imgui\imstb_truetype.h" />
+    <ClInclude Include="..\Classes\svg\nanosvg.h" />
+    <ClInclude Include="..\Classes\svg\nanosvgrast.h" />
+    <ClInclude Include="..\Classes\svg\SVGSprite.h" />
+    <ClInclude Include="..\Classes\svg\SVGSpritePath.h" />
     <ClInclude Include="main.h" />
   </ItemGroup>
   <ItemGroup>
@@ -187,6 +194,9 @@ xcopy "$(ProjectDir)..\Resources" "$(OutDir)\Resources\" /D /E /I /F /Y
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="game.rc" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\Classes\svg\README.md" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
