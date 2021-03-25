@@ -6,8 +6,11 @@
 2. UI is rendered with Dear ImGui[https://github.com/ocornut/imgui](https://github.com/ocornut/imgui)
 3. Open `proj.ios_mac/ImGuiX.xcodeproj/` to Test
 
+### macOS:
+![macOS](docs/imguix.png)
 
-![screen](docs/imguix.png)
+### win32:
+![win32](docs/imgui-win32.png)
 
 ## How to integrate imguix
 
@@ -15,21 +18,20 @@
 
 - create GLView:
 
-
-  ```c++
+```c++
 // include headers
 #include "CCImGuiLayer.h"
-  ```
+```
 
-  ```c++
+```c++
 // add ImGUI layer on top. Example:
 // https://github.com/c0i/imguix/blob/master/Classes/AppDelegate.cpp#L56
 ImGuiLayer::createAndKeepOnTop();
-  ```
+```
 
 ## How to use
 
-   ```c++
+```c++
    // add ui callbacks
    CCIMGUI::getInstance()->addImGUI([=](){
        {
@@ -50,7 +52,7 @@ ImGuiLayer::createAndKeepOnTop();
    // http://www.slackware.com/~alien/slackbuilds/wqy-zenhei-font-ttf/build/wqy-zenhei-0.4.23-1.tar.gz
    ImGuiIO &io = ImGui::GetIO();
    io.Fonts->AddFontFromFileTTF("res/wqy-zenhei.ttf", 18.0f, 0, io.Fonts->GetGlyphRangesChinese());
-   ```
+```
 
 ## Lua binding
 
@@ -84,6 +86,10 @@ if imgui.imageButton("#CoinSpin01.png") then print("CoinSpin01 1") end
 ```
 
 [more example in main.lua](Resources/res/main.lua)
+
+## Changelog
+
+1. using [glfw3.dll](https://github.com/glfw/glfw/releases/download/3.3.3/glfw-3.3.3.bin.WIN32.zip) vs 2019 version, 2021-03.
 
 ## Thanks
 1. https://github.com/Subtixx
