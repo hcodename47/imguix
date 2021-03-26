@@ -901,6 +901,10 @@ void ImGui_ImplCocos2dx_NewFrame()
 
     // Setup time step
     io.DeltaTime = cocos2d::Director::getInstance()->getDeltaTime();
+    if (io.DeltaTime <= 0)
+    {
+        io.DeltaTime = 0.01f;
+    }
 
     ImGui_ImplCocos2dx_UpdateMousePosAndButtons();
     ImGui_ImplCocos2dx_UpdateMouseCursor();
