@@ -3526,6 +3526,8 @@
 		826294331AAF001C00CB7CF7 /* HttpAsynConnection-apple.m in Sources */ = {isa = PBXBuildFile; fileRef = 52B47A2A1A5349A3004E4C60 /* HttpAsynConnection-apple.m */; };
 		826294341AAF003E00CB7CF7 /* HttpClient-apple.mm in Sources */ = {isa = PBXBuildFile; fileRef = 52B47A2B1A5349A3004E4C60 /* HttpClient-apple.mm */; };
 		826294351AAF004C00CB7CF7 /* HttpCookie.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 52B47A2C1A5349A3004E4C60 /* HttpCookie.cpp */; };
+		8479170D26102CE0001E992A /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B217703D1977ECC1009EE11B /* AudioToolbox.framework */; };
+		8479171226102DDE001E992A /* GameController.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8479171126102DDE001E992A /* GameController.framework */; };
 		8525E3A21B291E42008EE815 /* clipper.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 8525E3A11B291E42008EE815 /* clipper.hpp */; };
 		8525E3A31B291E42008EE815 /* clipper.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 8525E3A11B291E42008EE815 /* clipper.hpp */; };
 		85505F041B60E3AB003F2CD4 /* CCBoneNode.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C50306631B60B583001E6D43 /* CCBoneNode.cpp */; };
@@ -5574,6 +5576,7 @@
 		5E9F61231A3FFE3D0038DE01 /* CCFrustum.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCFrustum.h; sourceTree = "<group>"; };
 		5E9F61241A3FFE3D0038DE01 /* CCPlane.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CCPlane.cpp; sourceTree = "<group>"; };
 		5E9F61251A3FFE3D0038DE01 /* CCPlane.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCPlane.h; sourceTree = "<group>"; };
+		8479171126102DDE001E992A /* GameController.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GameController.framework; path = System/Library/Frameworks/GameController.framework; sourceTree = SDKROOT; };
 		8525E3A11B291E42008EE815 /* clipper.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = clipper.hpp; sourceTree = "<group>"; };
 		85B374381B204B9400C488D6 /* clipper.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = clipper.cpp; sourceTree = "<group>"; };
 		94A6DF031C7303FD0094AEF7 /* LocalizationManager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = LocalizationManager.cpp; sourceTree = "<group>"; };
@@ -6068,6 +6071,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8479171226102DDE001E992A /* GameController.framework in Frameworks */,
+				8479170D26102CE0001E992A /* AudioToolbox.framework in Frameworks */,
 				ED682BBA213F5FC7001BF6CB /* libuv_a.a in Frameworks */,
 				46BDE4A81FA32D3400104C05 /* libbox2d.a in Frameworks */,
 				46270FA41E1CC6A200AAA098 /* libcrypto.a in Frameworks */,
@@ -6215,6 +6220,7 @@
 		1551A341158F2AB200E66CFE /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				8479171126102DDE001E992A /* GameController.framework */,
 				ED682BC4213F6CBE001BF6CB /* libuv_a.a */,
 				ED682BC2213F6C7A001BF6CB /* libwebsockets.a */,
 				ED682BB9213F5FC6001BF6CB /* libuv_a.a */,
@@ -11546,6 +11552,7 @@
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
+				English,
 				en,
 			);
 			mainGroup = 1551A334158F2AB200E66CFE;
@@ -13611,7 +13618,7 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				HEADER_SEARCH_PATHS = "";
-				MACOSX_DEPLOYMENT_TARGET = 10.7;
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
 				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = macosx;
@@ -13662,7 +13669,7 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				HEADER_SEARCH_PATHS = "";
-				MACOSX_DEPLOYMENT_TARGET = 10.7;
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = macosx;
 				SKIP_INSTALL = YES;
@@ -13675,6 +13682,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "c++17";
 				CLANG_ENABLE_OBJC_WEAK = YES;
 				COMBINE_HIDPI_IMAGES = YES;
 				EXECUTABLE_EXTENSION = a;
@@ -13716,6 +13724,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "c++17";
 				CLANG_ENABLE_OBJC_WEAK = YES;
 				COMBINE_HIDPI_IMAGES = YES;
 				EXECUTABLE_EXTENSION = a;
