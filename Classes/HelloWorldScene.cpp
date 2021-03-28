@@ -19,6 +19,7 @@ static ImVec4 clear_color = ImColor(114, 144, 154);
 #define MAX_LOG_LENGTH 16 * 1024
 void print_win32(const std::string& str)
 {
+#if CC_TARGET_PLATFORM == CC_PLATFORM_WIN32
     wchar_t buf[MAX_LOG_LENGTH] = { '\0' };
     size_t i = 0;
     for (i = 0; i < str.length(); i++)
@@ -27,6 +28,7 @@ void print_win32(const std::string& str)
     }
     buf[i] = '\n';
     OutputDebugString(buf);
+#endif
 }
 
 int lua_print(lua_State* L)
@@ -101,6 +103,7 @@ bool HelloWorld::init()
         lua_State* L = _luaState.lua_state();
         lua_print(L);
     };
+    _luaState["ImGuiRenderer"] = []() { };
     sol::state_view luaView(_luaState.lua_state());
     sol_ImGui::Init(luaView);
     
@@ -112,7 +115,7 @@ bool HelloWorld::init()
     _luaState.script("print('bark bark bark!')");
     CCLOG("> sol2 >");
 
-    auto path = FileUtils::getInstance()->fullPathForFilename("main.lua");
+    auto path = FileUtils::getInstance()->fullPathForFilename("ImGuiTest.lua");
     _luaState.script_file(path);
 
     auto rootNode = Sprite::create("HelloWorld.png");
@@ -157,12 +160,7 @@ bool HelloWorld::init()
 
         // 4. Can Lua function
         {
-            sol::function fx = _luaState["ImGuiRenderer"];
-            if (fx)
-            {
-                std::function<void()> stdfx = fx;
-                stdfx();
-            }
+            _luaState["ImGuiRenderer"]();
         }
     }, "demoid");
     

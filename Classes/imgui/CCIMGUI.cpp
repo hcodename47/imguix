@@ -144,7 +144,7 @@ static std::tuple<Texture2D*, ImVec2, ImVec2, ImVec2> getTextureInfo(const std::
             float atlasWidth = (float)sf->getTexture()->getPixelsWide();
             float atlasHeight = (float)sf->getTexture()->getPixelsHigh();
 
-            const Rect& rect = sf->getRect();
+            const cocos2d::Rect& rect = sf->getRect();
             texture = sf->getTexture();
             if (sf->isRotated()) {
                 // FIXME:
