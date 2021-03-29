@@ -4,7 +4,7 @@
 #pragma once
 
 #include "cocos2d.h"
-#include "imgui.h"
+#include "imgui/imgui.h"
 
 #define IMGUI_LUA 1
 
