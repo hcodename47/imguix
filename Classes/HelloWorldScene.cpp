@@ -1,5 +1,5 @@
 #include "HelloWorldScene.h"
-#include "imgui/CCIMGUI.h"
+#include "ImGuiExt/CCIMGUI.h"
 
 #include "svg/SVGSprite.h"
 
@@ -7,7 +7,7 @@
 USING_NS_CC;
 using namespace spine;
 
-#include "imgui/sol_imgui.h"
+#include "ImGuiExt/sol_imgui.h"
 
 static bool show_test_window = true;
 static bool show_another_window = false;

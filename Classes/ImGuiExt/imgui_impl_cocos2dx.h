@@ -1,6 +1,6 @@
 #pragma once
 
-#include "imgui.h"
+#include "imgui/imgui.h"
 
 IMGUI_IMPL_API bool     ImGui_ImplCocos2dx_Init(bool install_callbacks);
 IMGUI_IMPL_API void     ImGui_ImplCocos2dx_Shutdown();

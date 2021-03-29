@@ -78,7 +78,7 @@
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
       <Optimization>Disabled</Optimization>
-      <AdditionalIncludeDirectories>$(EngineRoot);$(EngineRoot)external\luajit\include;$(EngineRoot)external;$(EngineRoot)cocos\audio\include;$(EngineRoot)external\chipmunk\include\chipmunk;$(EngineRoot)extensions;..\Classes;..;%(AdditionalIncludeDirectories);$(_COCOS_HEADER_WIN32_BEGIN);$(_COCOS_HEADER_WIN32_END)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(EngineRoot);$(EngineRoot)external\luajit\include;$(EngineRoot)external;$(EngineRoot)cocos\audio\include;$(EngineRoot)external\chipmunk\include\chipmunk;$(EngineRoot)extensions;..\Classes\ImGuiExt;..\Classes;..;%(AdditionalIncludeDirectories);$(_COCOS_HEADER_WIN32_BEGIN);$(_COCOS_HEADER_WIN32_END)</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>WIN32;_DEBUG;_WINDOWS;_USE_MATH_DEFINES;GL_GLEXT_PROTOTYPES;CC_ENABLE_CHIPMUNK_INTEGRATION=1;COCOS2D_DEBUG=1;_CRT_SECURE_NO_WARNINGS;_SCL_SECURE_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <MinimalRebuild>false</MinimalRebuild>
       <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
@@ -156,13 +156,13 @@ xcopy "$(ProjectDir)..\Resources" "$(OutDir)\Resources\" /D /E /I /F /Y
   <ItemGroup>
     <ClCompile Include="..\Classes\AppDelegate.cpp" />
     <ClCompile Include="..\Classes\HelloWorldScene.cpp" />
-    <ClCompile Include="..\Classes\imgui\CCIMGUI.cpp" />
-    <ClCompile Include="..\Classes\imgui\CCImGuiLayer.cpp" />
-    <ClCompile Include="..\Classes\imgui\imgui.cpp" />
-    <ClCompile Include="..\Classes\imgui\imgui_demo.cpp" />
-    <ClCompile Include="..\Classes\imgui\imgui_draw.cpp" />
-    <ClCompile Include="..\Classes\imgui\imgui_impl_cocos2dx.cpp" />
-    <ClCompile Include="..\Classes\imgui\imgui_widgets.cpp" />
+    <ClCompile Include="..\Classes\ImGuiExt\CCIMGUI.cpp" />
+    <ClCompile Include="..\Classes\ImGuiExt\CCImGuiLayer.cpp" />
+    <ClCompile Include="..\Classes\ImGuiExt\imgui\imgui.cpp" />
+    <ClCompile Include="..\Classes\ImGuiExt\imgui\imgui_demo.cpp" />
+    <ClCompile Include="..\Classes\ImGuiExt\imgui\imgui_draw.cpp" />
+    <ClCompile Include="..\Classes\ImGuiExt\imgui\imgui_widgets.cpp" />
+    <ClCompile Include="..\Classes\ImGuiExt\imgui_impl_cocos2dx.cpp" />
     <ClCompile Include="..\Classes\svg\nanosvg.cpp" />
     <ClCompile Include="..\Classes\svg\SVGSprite.cpp" />
     <ClCompile Include="..\Classes\svg\SVGSpritePath.cpp" />
@@ -171,15 +171,15 @@ xcopy "$(ProjectDir)..\Resources" "$(OutDir)\Resources\" /D /E /I /F /Y
   <ItemGroup>
     <ClInclude Include="..\Classes\AppDelegate.h" />
     <ClInclude Include="..\Classes\HelloWorldScene.h" />
-    <ClInclude Include="..\Classes\imgui\CCIMGUI.h" />
-    <ClInclude Include="..\Classes\imgui\CCImGuiLayer.h" />
-    <ClInclude Include="..\Classes\imgui\imconfig.h" />
-    <ClInclude Include="..\Classes\imgui\imgui.h" />
-    <ClInclude Include="..\Classes\imgui\imgui_impl_cocos2dx.h" />
-    <ClInclude Include="..\Classes\imgui\imgui_internal.h" />
-    <ClInclude Include="..\Classes\imgui\imstb_rectpack.h" />
-    <ClInclude Include="..\Classes\imgui\imstb_textedit.h" />
-    <ClInclude Include="..\Classes\imgui\imstb_truetype.h" />
+    <ClInclude Include="..\Classes\ImGuiExt\CCIMGUI.h" />
+    <ClInclude Include="..\Classes\ImGuiExt\CCImGuiLayer.h" />
+    <ClInclude Include="..\Classes\ImGuiExt\imgui\imconfig.h" />
+    <ClInclude Include="..\Classes\ImGuiExt\imgui\imgui.h" />
+    <ClInclude Include="..\Classes\ImGuiExt\imgui\imgui_internal.h" />
+    <ClInclude Include="..\Classes\ImGuiExt\imgui\imstb_rectpack.h" />
+    <ClInclude Include="..\Classes\ImGuiExt\imgui\imstb_textedit.h" />
+    <ClInclude Include="..\Classes\ImGuiExt\imgui\imstb_truetype.h" />
+    <ClInclude Include="..\Classes\ImGuiExt\imgui_impl_cocos2dx.h" />
     <ClInclude Include="..\Classes\svg\nanosvg.h" />
     <ClInclude Include="..\Classes\svg\nanosvgrast.h" />
     <ClInclude Include="..\Classes\svg\SVGSprite.h" />
