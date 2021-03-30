@@ -3,18 +3,19 @@
 ![](docs/logo.png)
 
 1. Cocos2d-x is the engine: [https://github.com/cocos2d/cocos2d-x](https://github.com/cocos2d/cocos2d-x)
-2. UI is rendered with Dear ImGui[https://github.com/ocornut/imgui](https://github.com/ocornut/imgui)
+2. UI is Dear ImGui[https://github.com/ocornut/imgui](https://github.com/ocornut/imgui)
 3. Open `proj.ios_mac/ImGuiX.xcodeproj/` to Test
+4. Open `proj.win32/ImGuiX.sln` to Test
 
-### macOS:
+### macOS multi-viewport & docking:
 ![macOS](docs/imguix.png)
 
-### win32:
+### win32 multi-viewport & docking:
 ![win32](docs/imgui-win32.png)
 
 ## How to integrate imguix
 
-- all you need are `Classes/imgui` folder
+- all you need are `Classes/ImGuiExt/` folder, exclude `imgui_impl_cocos2dx.cpp` & `imgui_lua.cpp`
 
 - create GLView:
 
