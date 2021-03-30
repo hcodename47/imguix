@@ -1,5 +1,5 @@
 #include "HelloWorldScene.h"
-#include "imgui/CCIMGUI.h"
+#include "ImGuiExt/CCIMGUI.h"
 
 #include "svg/SVGSprite.h"
 
@@ -7,9 +7,60 @@
 USING_NS_CC;
 using namespace spine;
 
+#include "ImGuiExt/sol_imgui.h"
+
 static bool show_test_window = true;
 static bool show_another_window = false;
 static ImVec4 clear_color = ImColor(114, 144, 154);
+
+/// <summary>
+/// Lua print
+/// </summary>
+#define MAX_LOG_LENGTH 16 * 1024
+void print_win32(const std::string& str)
+{
+#if CC_TARGET_PLATFORM == CC_PLATFORM_WIN32
+    wchar_t buf[MAX_LOG_LENGTH] = { '\0' };
+    size_t i = 0;
+    for (i = 0; i < str.length(); i++)
+    {
+        buf[i] = str.c_str()[i];
+    }
+    buf[i] = '\n';
+    OutputDebugString(buf);
+#endif
+}
+
+int lua_print(lua_State* L)
+{
+    int n = lua_gettop(L);  /* number of arguments */
+    int i;
+
+    std::string out;
+    lua_getglobal(L, "tostring");
+    for (i = 1; i <= n; i++) {
+        const char* s;
+        lua_pushvalue(L, -1);  /* function to be called */
+        lua_pushvalue(L, i);   /* value to print */
+        lua_call(L, 1, 1);
+        size_t sz;
+        s = lua_tolstring(L, -1, &sz);  /* get result */
+        if (s == NULL)
+            return luaL_error(L, LUA_QL("tostring") " must return a string to "
+                LUA_QL("print"));
+        if (i > 1) out.append("\t");
+        out.append(s, sz);
+        lua_pop(L, 1);  /* pop result */
+    }
+
+    print_win32(out);
+
+    printf("[LUA-PRINT] %s\n", out.c_str());
+    fflush(stdout);
+    return 0;
+}
+///
+
 
 HelloWorld::~HelloWorld()
 {
@@ -47,6 +98,26 @@ bool HelloWorld::init()
     auto director = Director::getInstance();
     auto size = director->getWinSize();
     
+    _luaState.open_libraries();
+    _luaState["print"] = [&]() {
+        lua_State* L = _luaState.lua_state();
+        lua_print(L);
+    };
+    _luaState["ImGuiRenderer"] = []() { };
+    sol::state_view luaView(_luaState.lua_state());
+    sol_ImGui::Init(luaView);
+    
+    _luaState["cxxfun"] = []() {
+        CCLOG("cxxfun");
+    };
+
+    CCLOG("> sol2");
+    _luaState.script("print('bark bark bark!')");
+    CCLOG("> sol2 >");
+
+    auto path = FileUtils::getInstance()->fullPathForFilename("ImGuiTest.lua");
+    _luaState.script_file(path);
+
     auto rootNode = Sprite::create("HelloWorld.png");
     rootNode->setPosition(size.width/2, size.height/2);
     addChild(rootNode);
@@ -85,6 +156,11 @@ bool HelloWorld::init()
         {
             ImGui::SetNextWindowPos(ImVec2(650, 20), ImGuiCond_FirstUseEver);
             ImGui::ShowDemoWindow();
+        }
+
+        // 4. Can Lua function
+        {
+            _luaState["ImGuiRenderer"]();
         }
     }, "demoid");
     

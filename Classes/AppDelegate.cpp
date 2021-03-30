@@ -2,8 +2,8 @@
 #include "HelloWorldScene.h"
 
 #include "platform/CCGLView.h"
-#include "imgui/CCImGuiLayer.h"
-#include "imgui/CCIMGUI.h"
+#include "ImGuiExt/CCImGuiLayer.h"
+#include "ImGuiExt/CCIMGUI.h"
 
 USING_NS_CC;
 //
@@ -31,7 +31,7 @@ bool AppDelegate::applicationDidFinishLaunching() {
     auto director = Director::getInstance();
     auto glview = director->getOpenGLView();
     if(!glview) {
-        glview = GLViewImpl::createWithRect("ImGuiX", Rect(0, 0, 960, 640));
+        glview = GLViewImpl::createWithRect("ImGuiX", cocos2d::Rect(0, 0, 960, 640));
         director->setOpenGLView(glview);
     }
 

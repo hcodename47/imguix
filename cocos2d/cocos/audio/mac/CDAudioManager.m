@@ -324,10 +324,13 @@ static BOOL configured = FALSE;
 }    
 
 -(BOOL) isOtherAudioPlaying {
+#if 0
     UInt32 isPlaying = 0;
     UInt32 varSize = sizeof(isPlaying);
     AudioSessionGetProperty (kAudioSessionProperty_OtherAudioIsPlaying, &varSize, &isPlaying);
     return (isPlaying != 0);
+#endif
+    return NO;
 }
 
 -(void) setMode:(tAudioManagerMode) mode {
@@ -476,6 +479,7 @@ static BOOL configured = FALSE;
 //determine ringer switch state
 -(BOOL) isDeviceMuted {
 
+#if 0
 #if TARGET_IPHONE_SIMULATOR
     //Calling audio route stuff on the simulator causes problems
     return NO;
@@ -502,6 +506,8 @@ static BOOL configured = FALSE;
         return (newDeviceIsMuted == kCFCompareEqualTo);
     }    
 #endif
+#endif
+    return NO;
 }    
 
 #pragma mark Audio Interrupt Protocol
