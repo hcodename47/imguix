@@ -45,9 +45,6 @@
     <ClCompile Include="..\Classes\ImGuiExt\CCImGuiLayer.cpp">
       <Filter>src\ImGuiExt</Filter>
     </ClCompile>
-    <ClCompile Include="..\Classes\ImGuiExt\imgui_impl_cocos2dx.cpp">
-      <Filter>src\ImGuiExt</Filter>
-    </ClCompile>
     <ClCompile Include="..\Classes\ImGuiExt\imgui\imgui.cpp">
       <Filter>src\ImGuiExt\imgui</Filter>
     </ClCompile>
@@ -59,6 +56,12 @@
     </ClCompile>
     <ClCompile Include="..\Classes\ImGuiExt\imgui\imgui_widgets.cpp">
       <Filter>src\ImGuiExt\imgui</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\ImGuiExt\imgui_impl_glfw.cpp">
+      <Filter>src\ImGuiExt</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\ImGuiExt\imgui_impl_opengl2.cpp">
+      <Filter>src\ImGuiExt</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -89,9 +92,6 @@
     <ClInclude Include="..\Classes\ImGuiExt\CCImGuiLayer.h">
       <Filter>src\ImGuiExt</Filter>
     </ClInclude>
-    <ClInclude Include="..\Classes\ImGuiExt\imgui_impl_cocos2dx.h">
-      <Filter>src\ImGuiExt</Filter>
-    </ClInclude>
     <ClInclude Include="..\Classes\ImGuiExt\imgui\imconfig.h">
       <Filter>src\ImGuiExt\imgui</Filter>
     </ClInclude>
@@ -109,6 +109,12 @@
     </ClInclude>
     <ClInclude Include="..\Classes\ImGuiExt\imgui\imstb_truetype.h">
       <Filter>src\ImGuiExt\imgui</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\ImGuiExt\imgui_impl_glfw.h">
+      <Filter>src\ImGuiExt</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\ImGuiExt\imgui_impl_opengl2.h">
+      <Filter>src\ImGuiExt</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

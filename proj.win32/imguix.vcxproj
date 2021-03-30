@@ -162,7 +162,8 @@ xcopy "$(ProjectDir)..\Resources" "$(OutDir)\Resources\" /D /E /I /F /Y
     <ClCompile Include="..\Classes\ImGuiExt\imgui\imgui_demo.cpp" />
     <ClCompile Include="..\Classes\ImGuiExt\imgui\imgui_draw.cpp" />
     <ClCompile Include="..\Classes\ImGuiExt\imgui\imgui_widgets.cpp" />
-    <ClCompile Include="..\Classes\ImGuiExt\imgui_impl_cocos2dx.cpp" />
+    <ClCompile Include="..\Classes\ImGuiExt\imgui_impl_glfw.cpp" />
+    <ClCompile Include="..\Classes\ImGuiExt\imgui_impl_opengl2.cpp" />
     <ClCompile Include="..\Classes\svg\nanosvg.cpp" />
     <ClCompile Include="..\Classes\svg\SVGSprite.cpp" />
     <ClCompile Include="..\Classes\svg\SVGSpritePath.cpp" />
@@ -179,7 +180,8 @@ xcopy "$(ProjectDir)..\Resources" "$(OutDir)\Resources\" /D /E /I /F /Y
     <ClInclude Include="..\Classes\ImGuiExt\imgui\imstb_rectpack.h" />
     <ClInclude Include="..\Classes\ImGuiExt\imgui\imstb_textedit.h" />
     <ClInclude Include="..\Classes\ImGuiExt\imgui\imstb_truetype.h" />
-    <ClInclude Include="..\Classes\ImGuiExt\imgui_impl_cocos2dx.h" />
+    <ClInclude Include="..\Classes\ImGuiExt\imgui_impl_glfw.h" />
+    <ClInclude Include="..\Classes\ImGuiExt\imgui_impl_opengl2.h" />
     <ClInclude Include="..\Classes\svg\nanosvg.h" />
     <ClInclude Include="..\Classes\svg\nanosvgrast.h" />
     <ClInclude Include="..\Classes\svg\SVGSprite.h" />

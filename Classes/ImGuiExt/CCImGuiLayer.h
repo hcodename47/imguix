@@ -7,6 +7,7 @@ USING_NS_CC;
 class ImGuiLayer : public cocos2d::Layer
 {
 public:
+    ~ImGuiLayer();
     bool detached = false;
 
     static void createAndKeepOnTop();
