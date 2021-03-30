@@ -4,6 +4,9 @@
 #include "cocos2d.h"
 #include <spine/spine-cocos2dx.h>
 
+#define SOL_ALL_SAFETIES_ON 1
+#include "sol/sol.hpp"
+
 class HelloWorld : public cocos2d::Layer
 {
 public:
@@ -29,6 +32,8 @@ protected:
     spAttachmentLoader* _attachmentLoader = nullptr;
     spSkeletonData* _skeletonData = nullptr;
     spAnimationStateData* _stateData = nullptr;
+
+    sol::state _luaState;
 };
 
 #endif // __HELLOWORLD_SCENE_H__
