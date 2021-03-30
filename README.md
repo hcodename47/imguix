@@ -88,9 +88,13 @@ if imgui.imageButton("#CoinSpin01.png") then print("CoinSpin01 1") end
 
 [more example in main.lua](Resources/res/main.lua)
 
+## TODO
+1. [ ] Lua Examples
+
 ## Changelog
 
 1. using [glfw3.dll](https://github.com/glfw/glfw/releases/download/3.3.3/glfw-3.3.3.bin.WIN32.zip) vs 2019 version, 2021-03.
+2. using imgui_impl_opengl2.cpp & imgui_impl_glfw.cpp instead of imgui_impl_cocos2dx.cpp file.
 
 ## Thanks
 1. https://github.com/Subtixx
